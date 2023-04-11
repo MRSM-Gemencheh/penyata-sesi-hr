@@ -1,0 +1,24 @@
+{
+  "name": "penyata-hr",
+  "version": "1.0.0",
+  "description": "Penjana penyata akhir sesi Homeroom",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MRSM-Gemencheh/penyata-sesi-hr.git"
+  },
+  "author": "MagusWyvern",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MRSM-Gemencheh/penyata-sesi-hr/issues"
+  },
+  "homepage": "https://github.com/MRSM-Gemencheh/penyata-sesi-hr#readme",
+  "dependencies": {
+    "exceljs": "^4.3.0",
+    "nodemon": "^2.0.22"
+  }
+}
