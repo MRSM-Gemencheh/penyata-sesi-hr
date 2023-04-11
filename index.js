@@ -1,4 +1,5 @@
 const ExcelJS = require('exceljs');
+const fs = require('fs');
 
 try {
     if (ExcelJS) {
@@ -149,7 +150,7 @@ async function readDataFromFile() {
     // console.log(form5Part1Data)
 
     // Part 2
-    
+
     // For each form, if a form has 91 rows, then we'll need to get data from rows 26 to 40
     // For each form, if a form has 106 rows, then we'll need to get data from rows 29 to 46
     // For each row, get the data for columns 3 to 11 only
@@ -460,14 +461,173 @@ async function readDataFromFile() {
         for (let i = 87; i <= 101; i++) {
             form2Part5Data.push(form2Worksheet.getRow(i).values[4])
         }
-    } 
+    } else if (form2Worksheet.actualRowCount == 106) {
+        for (let i = 100; i <= 117; i++) {
+            form2Part5Data.push(form2Worksheet.getRow(i).values[4])
+        }
+    }
 
+    // Form 3
 
+    form3Part5Data = []
 
+    if (form3Worksheet.actualRowCount == 91) {
+        for (let i = 87; i <= 101; i++) {
+            form3Part5Data.push(form3Worksheet.getRow(i).values[4])
+        }
+    } else if (form3Worksheet.actualRowCount == 106) {
+        for (let i = 100; i <= 117; i++) {
+            form3Part5Data.push(form3Worksheet.getRow(i).values[4])
+        }
+    }
 
+    // Form 4
 
+    form4Part5Data = []
 
-    
+    if (form4Worksheet.actualRowCount == 91) {
+        for (let i = 87; i <= 101; i++) {
+            form4Part5Data.push(form4Worksheet.getRow(i).values[4])
+        }
+    } else if (form4Worksheet.actualRowCount == 106) {
+        for (let i = 100; i <= 117; i++) {
+            form4Part5Data.push(form4Worksheet.getRow(i).values[4])
+        }
+    }
 
+    // Form 5
 
+    form5Part5Data = []
+
+    if (form5Worksheet.actualRowCount == 91) {
+        for (let i = 87; i <= 101; i++) {
+            form5Part5Data.push(form5Worksheet.getRow(i).values[4])
+        }
+    } else if (form5Worksheet.actualRowCount == 106) {
+        for (let i = 100; i <= 117; i++) {
+            form5Part5Data.push(form5Worksheet.getRow(i).values[4])
+        }
+    }
+
+    // Logging the data
+
+    // console.log("Form 1 Part 5 Data:")
+    // console.log(form1Part5Data)
+    // console.log("Form 2 Part 5 Data:")
+    // console.log(form2Part5Data)
+    // console.log("Form 3 Part 5 Data:")
+    // console.log(form3Part5Data)
+    // console.log("Form 4 Part 5 Data:")
+    // console.log(form4Part5Data)
+    // console.log("Form 5 Part 5 Data:")
+    // console.log(form5Part5Data)
+
+    await exportToJSON()
+}
+
+async function exportToJSON() {
+    // Export all of the read data to a JSON file
+
+    // Create a JSON object
+
+    let data = {
+        "form1": {
+            "part1": {
+                "data": form1Part1Data
+            },
+            "part2": {
+                "data": form1Part2Data
+            },
+            "part3": {
+                "data": form1Part3Data
+            },
+            "part4": {
+                "data": form1Part4Data
+            },
+            "part5": {
+                "data": form1Part5Data
+            },
+
+        },
+        "form2": {
+            "part1": {
+                "data": form2Part1Data
+            },
+            "part2": {
+                "data": form2Part2Data
+            },
+            "part3": {
+                "data": form2Part3Data
+            },
+            "part4": {
+                "data": form2Part4Data
+            },
+            "part5": {
+                "data": form2Part5Data
+            },
+        },
+        "form3": {
+            "part1": {
+                "data": form3Part1Data
+            },
+            "part2": {
+                "data": form3Part2Data
+            },
+            "part3": {
+                "data": form3Part3Data
+            },
+            "part4": {
+                "data": form3Part4Data
+            },
+            "part5": {
+                "data": form3Part5Data
+            },
+        },
+        "form4": {
+            "part1": {
+                "data": form4Part1Data
+            },
+            "part2": {
+                "data": form4Part2Data
+            },
+            "part3": {
+                "data": form4Part3Data
+            },
+            "part4": {
+                "data": form4Part4Data
+            },
+            "part5": {
+                "data": form4Part5Data
+            },
+        },
+        "form5": {
+            "part1": {
+                "data": form5Part1Data
+            },
+            "part2": {
+                "data": form5Part2Data
+            },
+            "part3": {
+                "data": form5Part3Data
+            },
+            "part4": {
+                "data": form5Part4Data
+            },
+            "part5": {
+                "data": form5Part5Data
+            },
+
+        }
+    }
+
+    // Save the JSON object to a file
+
+    fs.writeFile("data.json", JSON.stringify(data), (err) => {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log("Successfully wrote to file")
+        }
+    }
+    )
 }
