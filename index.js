@@ -72,11 +72,11 @@ async function readDataFromFile() {
 
     if (form1Worksheet.actualRowCount == 91) {
         for (let i = 6; i <= 20; i++) {
-            form1Part1Data.push(form1Worksheet.getRow(i).values.slice(3, 12))
+            form1Part1Data.push(form1Worksheet.getRow(i).values)
         }
     } else if (form1Worksheet.actualRowCount == 106) {
         for (let i = 6; i <= 23; i++) {
-            form1Part1Data.push(form1Worksheet.getRow(i).values.slice(3, 12))
+            form1Part1Data.push(form1Worksheet.getRow(i).values)
         }
     }
 
@@ -86,11 +86,11 @@ async function readDataFromFile() {
 
     if (form2Worksheet.actualRowCount == 91) {
         for (let i = 6; i <= 20; i++) {
-            form2Part1Data.push(form2Worksheet.getRow(i).values.slice(3, 12))
+            form2Part1Data.push(form2Worksheet.getRow(i).values)
         }
     } else if (form2Worksheet.actualRowCount == 106) {
         for (let i = 6; i <= 23; i++) {
-            form2Part1Data.push(form2Worksheet.getRow(i).values.slice(3, 12))
+            form2Part1Data.push(form2Worksheet.getRow(i).values)
         }
     }
 
@@ -100,11 +100,11 @@ async function readDataFromFile() {
 
     if (form3Worksheet.actualRowCount == 91) {
         for (let i = 6; i <= 20; i++) {
-            form3Part1Data.push(form3Worksheet.getRow(i).values.slice(3, 12))
+            form3Part1Data.push(form3Worksheet.getRow(i).values)
         }
     } else if (form3Worksheet.actualRowCount == 106) {
         for (let i = 6; i <= 23; i++) {
-            form3Part1Data.push(form3Worksheet.getRow(i).values.slice(3, 12))
+            form3Part1Data.push(form3Worksheet.getRow(i).values)
         }
     }
 
@@ -114,11 +114,11 @@ async function readDataFromFile() {
 
     if (form4Worksheet.actualRowCount == 91) {
         for (let i = 6; i <= 20; i++) {
-            form4Part1Data.push(form4Worksheet.getRow(i).values.slice(3, 12))
+            form4Part1Data.push(form4Worksheet.getRow(i).values)
         }
     } else if (form4Worksheet.actualRowCount == 106) {
         for (let i = 6; i <= 23; i++) {
-            form4Part1Data.push(form4Worksheet.getRow(i).values.slice(3, 12))
+            form4Part1Data.push(form4Worksheet.getRow(i).values)
         }
     }
 
@@ -128,11 +128,11 @@ async function readDataFromFile() {
 
     if (form5Worksheet.actualRowCount == 91) {
         for (let i = 6; i <= 20; i++) {
-            form5Part1Data.push(form5Worksheet.getRow(i).values.slice(3, 12))
+            form5Part1Data.push(form5Worksheet.getRow(i).values)
         }
     } else if (form5Worksheet.actualRowCount == 106) {
         for (let i = 6; i <= 23; i++) {
-            form5Part1Data.push(form5Worksheet.getRow(i).values.slice(3, 12))
+            form5Part1Data.push(form5Worksheet.getRow(i).values)
         }
     }
 
