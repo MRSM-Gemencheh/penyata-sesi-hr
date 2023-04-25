@@ -283,7 +283,7 @@ async function readDataFromFile() {
             form3Part3Data.push(form3Worksheet.getRow(i).values.slice(3, 13))
         }
     } else if (form3Worksheet.actualRowCount == 106) {
-        for (let i = 52; i <= 69; i++) {
+        for (let i = 53; i <= 70; i++) {
             form3Part3Data.push(form3Worksheet.getRow(i).values.slice(3, 13))
         }
     }
@@ -393,14 +393,10 @@ async function readDataFromFile() {
     form4Part4Data = []
 
     if (form4Worksheet.actualRowCount == 91) {
-        for (let i = 67; i <= 81; i++) {
+        for (let i = 68; i <= 84; i++) {
             form4Part4Data.push(form4Worksheet.getRow(i).values.slice(3, jumlahPertandinganForm4 * 2 + 4))
         }
-    } else if (form4Worksheet.actualRowCount == 106) {
-        for (let i = 77; i <= 94; i++) {
-            form4Part4Data.push(form4Worksheet.getRow(i).values.slice(3, jumlahPertandinganForm4 * 2 + 4))
-        }
-    }
+    } 
 
     // Form 5
 
@@ -411,7 +407,7 @@ async function readDataFromFile() {
             form5Part4Data.push(form5Worksheet.getRow(i).values.slice(3, jumlahPertandinganForm5 * 2 + 4))
         }
     } else if (form5Worksheet.actualRowCount == 106) {
-        for (let i = 77; i <= 94; i++) {
+        for (let i = 76; i <= 93; i++) {
             form5Part4Data.push(form5Worksheet.getRow(i).values.slice(3, jumlahPertandinganForm5 * 2 + 4))
         }
     }
