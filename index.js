@@ -64,7 +64,7 @@ async function readDataFromFile() {
     form1Part1Data = []
 
 
-    for (let i = 11; i <= 25; i++) {
+    for (let i = 11; i <= 28; i++) {
         form1Part1Data.push(form1Worksheet.getRow(i).values)
     }
 
@@ -74,7 +74,7 @@ async function readDataFromFile() {
     form2Part1Data = []
 
 
-    for (let i = 11; i <= 25; i++) {
+    for (let i = 11; i <= 28; i++) {
         form2Part1Data.push(form2Worksheet.getRow(i).values)
     }
 
@@ -84,7 +84,7 @@ async function readDataFromFile() {
     form3Part1Data = []
 
 
-    for (let i = 11; i <= 25; i++) {
+    for (let i = 11; i <= 28; i++) {
         form3Part1Data.push(form3Worksheet.getRow(i).values)
     }
 
@@ -93,7 +93,7 @@ async function readDataFromFile() {
     form4Part1Data = []
 
 
-    for (let i = 11; i <= 25; i++) {
+    for (let i = 11; i <= 28; i++) {
         form4Part1Data.push(form4Worksheet.getRow(i).values)
     }
 
@@ -102,7 +102,7 @@ async function readDataFromFile() {
     form5Part1Data = []
 
 
-    for (let i = 11; i <= 25; i++) {
+    for (let i = 11; i <= 28; i++) {
         form5Part1Data.push(form5Worksheet.getRow(i).values)
     }
 
