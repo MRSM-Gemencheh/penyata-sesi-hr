@@ -263,7 +263,7 @@ async function readDataFromFile() {
 
     let form1PertandinganNames = []
 
-    for (let i = 3; i <= 18; i++) {
+    for (let i = 3; i <= 19; i++) {
         form1PertandinganNames.push(form1Worksheet.getRow(84).values[i]) 
     }
 
@@ -274,7 +274,7 @@ async function readDataFromFile() {
     form1Part4Data.push(form1PertandinganNames)
 
     for (let i = 86; i <= 103; i++) {
-        form1Part4Data.push(form1Worksheet.getRow(i).values.slice(3, 18))
+        form1Part4Data.push(form1Worksheet.getRow(i).values.slice(3, 19))
     }
 
 
@@ -286,7 +286,7 @@ async function readDataFromFile() {
 
     let form2PertandinganNames = []
 
-    for (let i = 3; i <= 18; i++) {
+    for (let i = 3; i <= 19; i++) {
         form2PertandinganNames.push(form2Worksheet.getRow(84).values[i])
     }
 
@@ -297,7 +297,7 @@ async function readDataFromFile() {
     form2Part4Data.push(form2PertandinganNames)
 
     for (let i = 86; i <= 103; i++) {
-        form2Part4Data.push(form2Worksheet.getRow(i).values.slice(3, 18))
+        form2Part4Data.push(form2Worksheet.getRow(i).values.slice(3, 19))
     }
 
 
@@ -309,7 +309,7 @@ async function readDataFromFile() {
 
     let form3PertandinganNames = []
 
-    for (let i = 3; i <= 18; i++) {
+    for (let i = 3; i <= 19; i++) {
         form3PertandinganNames.push(form3Worksheet.getRow(84).values[i])
     }
 
@@ -320,7 +320,7 @@ async function readDataFromFile() {
     form3Part4Data.push(form3PertandinganNames)
 
     for (let i = 86; i <= 103; i++) {
-        form3Part4Data.push(form3Worksheet.getRow(i).values.slice(3, 18))
+        form3Part4Data.push(form3Worksheet.getRow(i).values.slice(3, 19))
     }
 
 
@@ -332,7 +332,7 @@ async function readDataFromFile() {
 
     let form4PertandinganNames = []
 
-    for (let i = 3; i <= 18; i++) {
+    for (let i = 3; i <= 19; i++) {
         form4PertandinganNames.push(form4Worksheet.getRow(84).values[i])
     }
 
@@ -343,7 +343,7 @@ async function readDataFromFile() {
     form4Part4Data.push(form4PertandinganNames)
 
     for (let i = 86; i <= 103; i++) {
-        form4Part4Data.push(form4Worksheet.getRow(i).values.slice(3, 18))
+        form4Part4Data.push(form4Worksheet.getRow(i).values.slice(3, 19))
     }
 
 
@@ -355,7 +355,7 @@ async function readDataFromFile() {
 
     let form5PertandinganNames = []
 
-    for (let i = 3; i <= 18; i++) {
+    for (let i = 3; i <= 19; i++) {
         form5PertandinganNames.push(form5Worksheet.getRow(84).values[i])
     }
 
@@ -363,10 +363,20 @@ async function readDataFromFile() {
 
     form5PertandinganNames = [...new Set(form5PertandinganNames)]
 
+    // Also remove instances of 'NAMA PERTANDINGAN' and 'JUMLAH' from the array, replace them with null
+
+    form5PertandinganNames = form5PertandinganNames.map((item) => {
+        if (item === 'NAMA PERTANDINGAN' || item === 'JUMLAH') {
+            return null
+        } else {
+            return item
+        }
+    })
+
     form5Part4Data.push(form5PertandinganNames)
 
     for (let i = 86; i <= 103; i++) {
-        form5Part4Data.push(form5Worksheet.getRow(i).values.slice(3, 18))
+        form5Part4Data.push(form5Worksheet.getRow(i).values.slice(3, 19))
     }
 
 
