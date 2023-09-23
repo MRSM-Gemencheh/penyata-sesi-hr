@@ -1,7 +1,7 @@
 {
   "name": "penyata-hr",
-  "version": "1.0.0",
-  "description": "Penjana penyata akhir sesi Homeroom",
+  "version": "1.1.0",
+  "description": "Penjana laporan penyata Homeroom MRSM Gemencheh",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,6 +19,6 @@
   "homepage": "https://github.com/MRSM-Gemencheh/penyata-sesi-hr#readme",
   "dependencies": {
     "exceljs": "^4.3.0",
-    "nodemon": "^2.0.22"
+    "nodemon": "^3.0.1"
   }
 }
