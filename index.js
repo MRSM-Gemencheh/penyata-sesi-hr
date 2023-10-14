@@ -11,7 +11,7 @@ try {
 
 const workbook = new ExcelJS.Workbook();
 
-filename = 'merit-demerit-homeroom-2022.xlsx'
+filename = './src/Data_Merit_Demerit_HR_2022.xlsx'
 
 async function readExcelFileFromSystem(filename) {
 

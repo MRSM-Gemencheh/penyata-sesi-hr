@@ -11,7 +11,7 @@ const workbook = new ExcelJS.Workbook();
 
 // Import the template
 
-templateName = 'penyata-akaun-hr-2022.xlsx'
+templateName = './src/Template_Penyata_Akaun_HR.xlsx'
 
 // For every homeroom, create a copy of the template
 
