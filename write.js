@@ -1,27 +1,26 @@
 const ExcelJS = require('exceljs');
 const fs = require('fs');
 
-// Import the data
+// Get what year they want to generate the penyata akhir for
+year = process.argv[2];
 
-const data = require('./data.json');
+// Import the data in the raw_data folder depending on the year
+const data = require(`./raw_data/merit_demerit_data_${year}.json`)
 
 // Create a new workbook
-
 const workbook = new ExcelJS.Workbook();
 
-// Import the template
-
-templateName = './src/Template_Penyata_Akaun_HR.xlsx'
+// Import the template for the penyata akhir
+templateName = `./src/Template_Penyata_Akaun_HR_${year}.xlsx`
 
 // For every homeroom, create a copy of the template
-
 function copyFromTemplateForm1() {
     for (let i = 0; i < 15; i++) {
         // Get the homeroom name
         homeroom = data.form1.part1.data[i][1];
 
         // Create a copy of the template with the homeroom name
-        fs.copyFile(templateName, `./penyata-akhir/form1/1${homeroom}-2022.xlsx`, (err) => {
+        fs.copyFile(templateName, `./penyata-akhir-${year}/form1/1${homeroom}-${year}.xlsx`, (err) => {
             if (err) throw err;
             // console.log(`${homeroom}.xlsx was copied to specified directory`);
         });
@@ -39,7 +38,7 @@ async function writeDataToCopyForm1() {
 
         const workbook = new ExcelJS.Workbook();
 
-        await workbook.xlsx.readFile(`./penyata-akhir/form1/1${homeroom}-2022.xlsx`);
+        await workbook.xlsx.readFile(`./penyata-akhir-${year}/form1/1${homeroom}-${year}.xlsx`);
 
         const worksheet = workbook.getWorksheet('Sheet1');
 
@@ -210,7 +209,7 @@ async function copyFromTemplateForm2() {
         homeroom = data.form2.part1.data[i][1];
 
         // Create a copy of the template with the homeroom name
-        fs.copyFile(templateName, `./penyata-akhir/form2/2${homeroom}-2022.xlsx`, (err) => {
+        fs.copyFile(templateName, `./penyata-akhir-${year}/form2/2${homeroom}-${year}.xlsx`, (err) => {
             if (err) throw err;
             // console.log(`${homeroom}.xlsx was copied to specified directory`);
         });
@@ -228,7 +227,7 @@ async function writeDataToCopyForm2() {
 
         const workbook = new ExcelJS.Workbook();
 
-        await workbook.xlsx.readFile(`./penyata-akhir/form2/2${homeroom}-2022.xlsx`);
+        await workbook.xlsx.readFile(`./penyata-akhir-${year}/form2/2${homeroom}-${year}.xlsx`);
 
         const worksheet = workbook.getWorksheet('Sheet1');
 
@@ -402,7 +401,7 @@ async function copyFromTemplateForm3() {
         homeroom = data.form3.part1.data[i][1];
 
         // Create a copy of the template with the homeroom name
-        fs.copyFile(templateName, `./penyata-akhir/form3/3${homeroom}-2022.xlsx`, (err) => {
+        fs.copyFile(templateName, `./penyata-akhir-${year}/form3/3${homeroom}-${year}.xlsx`, (err) => {
             if (err) throw err;
             // console.log(`${homeroom}.xlsx was copied to specified directory`);
         });
@@ -420,7 +419,7 @@ async function writeDataToCopyForm3() {
 
         const workbook = new ExcelJS.Workbook();
 
-        await workbook.xlsx.readFile(`./penyata-akhir/form3/3${homeroom}-2022.xlsx`);
+        await workbook.xlsx.readFile(`./penyata-akhir-${year}/form3/3${homeroom}-${year}.xlsx`);
 
         const worksheet = workbook.getWorksheet('Sheet1');
 
@@ -590,7 +589,7 @@ async function copyFromTemplateForm4() {
         homeroom = data.form4.part1.data[i][1];
 
         // Create a copy of the template with the homeroom name
-        fs.copyFile(templateName, `./penyata-akhir/form4/4${homeroom}-2022.xlsx`, (err) => {
+        fs.copyFile(templateName, `./penyata-akhir-${year}/form4/4${homeroom}-${year}.xlsx`, (err) => {
             if (err) throw err;
             // console.log(`${homeroom}.xlsx was copied to specified directory`);
         });
@@ -608,7 +607,7 @@ async function writeDataToCopyForm4() {
 
         const workbook = new ExcelJS.Workbook();
 
-        await workbook.xlsx.readFile(`./penyata-akhir/form4/4${homeroom}-2022.xlsx`);
+        await workbook.xlsx.readFile(`./penyata-akhir-${year}/form4/4${homeroom}-${year}.xlsx`);
 
         const worksheet = workbook.getWorksheet('Sheet1');
 
@@ -779,7 +778,7 @@ async function copyFromTemplateForm5() {
         homeroom = data.form5.part1.data[i][1];
 
         // Create a copy of the template with the homeroom name
-        fs.copyFile(templateName, `./penyata-akhir/form5/5${homeroom}-2022.xlsx`, (err) => {
+        fs.copyFile(templateName, `./penyata-akhir-${year}/form5/5${homeroom}-${year}.xlsx`, (err) => {
             if (err) throw err;
             // console.log(`${homeroom}.xlsx was copied to specified directory`);
         });
@@ -797,7 +796,7 @@ async function writeDataToCopyForm5() {
 
         const workbook = new ExcelJS.Workbook();
 
-        await workbook.xlsx.readFile(`./penyata-akhir/form5/5${homeroom}-2022.xlsx`);
+        await workbook.xlsx.readFile(`./penyata-akhir-${year}/form5/5${homeroom}-${year}.xlsx`);
 
         const worksheet = workbook.getWorksheet('Sheet1');
 
