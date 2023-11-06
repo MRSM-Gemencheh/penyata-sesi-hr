@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/MRSM-Gemencheh/penyata-sesi-hr#readme",
   "dependencies": {
+    "axios": "^1.5.1",
     "exceljs": "^4.3.0",
     "nodemon": "^3.0.1",
     "pdfjs": "^2.5.2"

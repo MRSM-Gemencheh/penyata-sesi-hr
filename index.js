@@ -11,7 +11,9 @@ try {
 
 const workbook = new ExcelJS.Workbook();
 
-filename = './src/Data_Merit_Demerit_HR_2022.xlsx'
+// Ask the user for the filename of the Excel file to read from 
+
+filename = 'src/' + process.argv[2]
 
 async function readExcelFileFromSystem(filename) {
 
@@ -30,14 +32,14 @@ async function readDataFromFile() {
     form4Worksheet = workbook.getWorksheet('TING.4')
     form5Worksheet = workbook.getWorksheet('TING.5')
 
-    // Logging all of the actualRowCounts of every form
+    // Logging all of the actualRowCounts of every form in one line
 
     console.log("Actual row counts of every form:")
-    console.log("Form 1: " + form1Worksheet.actualRowCount)
-    console.log("Form 2: " + form2Worksheet.actualRowCount)
-    console.log("Form 3: " + form3Worksheet.actualRowCount)
-    console.log("Form 4: " + form4Worksheet.actualRowCount)
-    console.log("Form 5: " + form5Worksheet.actualRowCount)
+    console.log("Form 1: " + form1Worksheet.actualRowCount + " rows")
+    console.log("Form 2: " + form2Worksheet.actualRowCount + " rows")
+    console.log("Form 3: " + form3Worksheet.actualRowCount + " rows")
+    console.log("Form 4: " + form4Worksheet.actualRowCount + " rows")
+    console.log("Form 5: " + form5Worksheet.actualRowCount + " rows") 
 
     // Logging all of the actualColumnCounts of every form
     // If the actualColumntCount of every form is the same, then don't log the column values
@@ -479,13 +481,18 @@ async function exportToJSON() {
         }
     }
 
+    // Get the year from the filename (last 4 characters) before the extension
+
+    let year = filename.slice(-9, -5)
+
     // Save the JSON object to a file
 
-    fs.writeFile("data.json", JSON.stringify(data), (err) => {
+    fs.writeFile(`raw_data/merit_demerit_data_${year}.json`, JSON.stringify(data), (err) => {
         if (err) {
             console.log(err)
         } else {
-            console.log("Successfully wrote to file")
+            console.log("Data saved to JSON file successfully!")
+            console.log("File path: " + `raw_data/merit_demerit_data_${year}.json`)
         }
     }
     )
