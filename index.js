@@ -39,7 +39,7 @@ async function readDataFromFile() {
     console.log("Form 2: " + form2Worksheet.actualRowCount + " rows")
     console.log("Form 3: " + form3Worksheet.actualRowCount + " rows")
     console.log("Form 4: " + form4Worksheet.actualRowCount + " rows")
-    console.log("Form 5: " + form5Worksheet.actualRowCount + " rows") 
+    console.log("Form 5: " + form5Worksheet.actualRowCount + " rows")
 
     // Logging all of the actualColumnCounts of every form
     // If the actualColumntCount of every form is the same, then don't log the column values
@@ -266,12 +266,23 @@ async function readDataFromFile() {
     let form1PertandinganNames = []
 
     for (let i = 3; i <= 19; i++) {
-        form1PertandinganNames.push(form1Worksheet.getRow(84).values[i]) 
+        form1PertandinganNames.push(form1Worksheet.getRow(84).values[i])
     }
 
     // Remove duplicates from the array
 
     form1PertandinganNames = [...new Set(form1PertandinganNames)]
+
+    // Also remove instances of 'NAMA PERTANDINGAN' and 'JUMLAH' from the array, replace them with null
+
+    form1PertandinganNames = form1PertandinganNames.map((item) => {
+        if (item === 'NAMA PERTANDINGAN' || item === 'JUMLAH' || item === 'Jumlah' || item == 'Nama Pertandingan') {
+            
+            return null
+        } else {
+            return item
+        }
+    })
 
     form1Part4Data.push(form1PertandinganNames)
 
@@ -296,6 +307,16 @@ async function readDataFromFile() {
 
     form2PertandinganNames = [...new Set(form2PertandinganNames)]
 
+    // Also remove instances of 'NAMA PERTANDINGAN' and 'JUMLAH' from the array, replace them with null
+
+    form2PertandinganNames = form2PertandinganNames.map((item) => {
+        if (item === 'NAMA PERTANDINGAN' || item === 'JUMLAH' || item === 'Jumlah' || item == 'Nama Pertandingan') {
+            return null
+        } else {
+            return item
+        }
+    })
+
     form2Part4Data.push(form2PertandinganNames)
 
     for (let i = 86; i <= 103; i++) {
@@ -319,6 +340,16 @@ async function readDataFromFile() {
 
     form3PertandinganNames = [...new Set(form3PertandinganNames)]
 
+    // Also remove instances of 'NAMA PERTANDINGAN' and 'JUMLAH' from the array, replace them with null
+
+    form3PertandinganNames = form3PertandinganNames.map((item) => {
+        if (item === 'NAMA PERTANDINGAN' || item === 'JUMLAH' || item === 'Jumlah' || item == 'Nama Pertandingan') {
+            return null
+        } else {
+            return item
+        }
+    })
+
     form3Part4Data.push(form3PertandinganNames)
 
     for (let i = 86; i <= 103; i++) {
@@ -341,6 +372,16 @@ async function readDataFromFile() {
     // Remove duplicates from the array
 
     form4PertandinganNames = [...new Set(form4PertandinganNames)]
+
+    // Also remove instances of 'NAMA PERTANDINGAN' and 'JUMLAH' from the array, replace them with null
+
+    form4PertandinganNames = form4PertandinganNames.map((item) => {
+        if (item === 'NAMA PERTANDINGAN' || item === 'JUMLAH' || item === 'Jumlah' || item == 'Nama Pertandingan') {
+            return null
+        } else {
+            return item
+        }
+    })
 
     form4Part4Data.push(form4PertandinganNames)
 
@@ -368,7 +409,7 @@ async function readDataFromFile() {
     // Also remove instances of 'NAMA PERTANDINGAN' and 'JUMLAH' from the array, replace them with null
 
     form5PertandinganNames = form5PertandinganNames.map((item) => {
-        if (item === 'NAMA PERTANDINGAN' || item === 'JUMLAH') {
+        if (item === 'NAMA PERTANDINGAN' || item === 'JUMLAH' || item === 'Jumlah' || item == 'Nama Pertandingan') {
             return null
         } else {
             return item
@@ -376,6 +417,8 @@ async function readDataFromFile() {
     })
 
     form5Part4Data.push(form5PertandinganNames)
+
+    console.log(form5PertandinganNames)
 
     for (let i = 86; i <= 103; i++) {
         form5Part4Data.push(form5Worksheet.getRow(i).values.slice(3, 19))
