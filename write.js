@@ -48,7 +48,7 @@ async function writeDataToCopyForm1() {
 
         const cell = worksheet.getCell('B8');
 
-        cell.value = `HOMEROOM 1${homeroom} 2022`;
+        cell.value = `HOMEROOM 1${homeroom} ${year}`;
 
         // Part 1
 
@@ -227,7 +227,7 @@ async function writeDataToCopyForm2() {
 
         const cell = worksheet.getCell('B8');
 
-        cell.value = `HOMEROOM 2${homeroom} 2022`;
+        cell.value = `HOMEROOM 2${homeroom} ${year}`;
 
         // Part 1
 
@@ -408,7 +408,7 @@ async function writeDataToCopyForm3() {
 
         const cell = worksheet.getCell('B8');
 
-        cell.value = `HOMEROOM 3${homeroom} 2022`;
+        cell.value = `HOMEROOM 3${homeroom} ${year}`;
 
         // Part 1
 
@@ -586,7 +586,7 @@ async function writeDataToCopyForm4() {
 
         const cell = worksheet.getCell('B8');
 
-        cell.value = `HOMEROOM 4${homeroom} 2022`;
+        cell.value = `HOMEROOM 4${homeroom} ${year}`;
 
         // Part 1
 
@@ -765,7 +765,7 @@ async function writeDataToCopyForm5() {
 
         const cell = worksheet.getCell('B8');
 
-        cell.value = `HOMEROOM 5${homeroom} 2022`;
+        cell.value = `HOMEROOM 5${homeroom} ${year}`;
 
         // Part 1
 
