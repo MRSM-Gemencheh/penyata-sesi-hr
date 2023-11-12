@@ -182,22 +182,12 @@ async function writeDataToCopyForm1() {
 
         // Write the data to the copy
 
-        await workbook.xlsx.writeFile(`./penyata-akhir/form1/penyata-akhir-1${homeroom}-2022.xlsx`);
+        await workbook.xlsx.writeFile(`./penyata-akhir-${year}/form1/1${homeroom}-${year}.xlsx`);
 
     }
 
     console.log('Done writing data to copies of Form 1');
 
-    // Delete all of the templates
-
-    for (let i = 0; i < 15; i++) {
-        homeroom = data.form1.part1.data[i][1];
-
-        fs.unlink(`./penyata-akhir/form1/1${homeroom}-2022.xlsx`, (err) => {
-            if (err) throw err;
-            // console.log(`${homeroom}.xlsx was deleted`);
-        });
-    }
 }
 
 
@@ -371,24 +361,13 @@ async function writeDataToCopyForm2() {
 
         // Write the data to the copy
 
-        await workbook.xlsx.writeFile(`./penyata-akhir/form2/penyata-akhir-2${homeroom}-2022.xlsx`);
+        await workbook.xlsx.writeFile(`./penyata-akhir-${year}/form2/2${homeroom}-${year}.xlsx`);
 
 
 
     }
 
     console.log('Done writing data to copies of Form 2')
-
-    // Delete all the copies of the template
-
-    for (let i = 0; i < 18; i++) {
-        homeroom = data.form2.part1.data[i][1];
-
-        fs.unlink(`./penyata-akhir/form2/2${homeroom}-2022.xlsx`, (err) => {
-            if (err) throw err;
-            // console.log(`Deleted 2${homeroom}-2022.xlsx`);
-        });
-    }
 
 
 }
@@ -563,21 +542,11 @@ async function writeDataToCopyForm3() {
 
         // Write the data to the copy
 
-        await workbook.xlsx.writeFile(`./penyata-akhir/form3/penyata-akhir-3${homeroom}-2022.xlsx`);
+        await workbook.xlsx.writeFile(`./penyata-akhir-${year}/form3/3${homeroom}-${year}.xlsx`);
 
     }
 
     console.log('Done writing data to copies of Form 3')
-
-    // Delete all templates 
-
-    for (let i = 0; i < 18; i++) {
-        homeroom = data.form3.part1.data[i][1];
-        fs.unlink(`./penyata-akhir/form3/3${homeroom}-2022.xlsx`, (err) => {
-            if (err) throw err;
-            // console.log(`Deleted 3${homeroom}-2022.xlsx`);
-        });
-    }
 
 }
 
@@ -751,21 +720,11 @@ async function writeDataToCopyForm4() {
 
         // Write the data to the copy
 
-        await workbook.xlsx.writeFile(`./penyata-akhir/form4/penyata-akhir-4${homeroom}-2022.xlsx`);
+        await workbook.xlsx.writeFile(`./penyata-akhir-${year}/form4/4${homeroom}-${year}.xlsx`);
 
     }
 
     console.log('Done writing data to copies of Form 4')
-
-    // Delete all templates 
-
-    for (let i = 0; i < 15; i++) {
-        homeroom = data.form4.part1.data[i][1];
-        fs.unlink(`./penyata-akhir/form4/4${homeroom}-2022.xlsx`, (err) => {
-            if (err) throw err;
-            // console.log(`Deleted 4${homeroom}-2022.xlsx`);
-        });
-    }
 
 }
 
@@ -940,21 +899,11 @@ async function writeDataToCopyForm5() {
 
         // Write the data to the copy
 
-        await workbook.xlsx.writeFile(`./penyata-akhir/form5/penyata-akhir-5${homeroom}-2022.xlsx`);
+        await workbook.xlsx.writeFile(`./penyata-akhir-${year}/form5/5${homeroom}-${year}.xlsx`);
 
     }
 
     console.log('Done writing data to copies of Form 5')
-
-    // Delete all templates 
-
-    for (let i = 0; i < 18; i++) {
-        homeroom = data.form5.part1.data[i][1];
-        fs.unlink(`./penyata-akhir/form5/5${homeroom}-2022.xlsx`, (err) => {
-            if (err) throw err;
-            // console.log(`Deleted 4${homeroom}-2022.xlsx`);
-        });
-    }
 
 }
 
