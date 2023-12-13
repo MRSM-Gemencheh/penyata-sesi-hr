@@ -280,7 +280,17 @@ async function readDataFromFile() {
             
             return null
         } else {
-            return item
+            return item.toLowerCase(); // Change all characters to lowercase
+        }
+    })
+
+    // Also change every item to use Title Case
+
+    form1PertandinganNames = form1PertandinganNames.map((item) => {
+        if (item !== null) {
+            return item.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))
+        } else {
+            return null
         }
     })
 
@@ -313,7 +323,17 @@ async function readDataFromFile() {
         if (item === 'NAMA PERTANDINGAN' || item === 'JUMLAH' || item === 'Jumlah' || item == 'Nama Pertandingan') {
             return null
         } else {
-            return item
+            return item.toLowerCase(); // Change all characters to lowercase
+        }
+    })
+
+    // Also change every item to use Title Case
+
+    form2PertandinganNames = form2PertandinganNames.map((item) => {
+        if (item !== null) {
+            return item.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))
+        } else {
+            return null
         }
     })
 
@@ -346,7 +366,17 @@ async function readDataFromFile() {
         if (item === 'NAMA PERTANDINGAN' || item === 'JUMLAH' || item === 'Jumlah' || item == 'Nama Pertandingan') {
             return null
         } else {
-            return item
+            return item.toLowerCase(); // Change all characters to lowercase
+        }
+    })
+
+    // Also change every item to use Title Case
+
+    form3PertandinganNames = form3PertandinganNames.map((item) => {
+        if (item !== null) {
+            return item.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))
+        } else {
+            return null
         }
     })
 
@@ -379,7 +409,17 @@ async function readDataFromFile() {
         if (item === 'NAMA PERTANDINGAN' || item === 'JUMLAH' || item === 'Jumlah' || item == 'Nama Pertandingan') {
             return null
         } else {
-            return item
+            return item.toLowerCase(); // Change all characters to lowercase
+        }
+    })
+
+    // Also change every item to use Title Case
+
+    form4PertandinganNames = form4PertandinganNames.map((item) => {
+        if (item !== null) {
+            return item.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))
+        } else {
+            return null
         }
     })
 
@@ -412,13 +452,21 @@ async function readDataFromFile() {
         if (item === 'NAMA PERTANDINGAN' || item === 'JUMLAH' || item === 'Jumlah' || item == 'Nama Pertandingan') {
             return null
         } else {
-            return item
+            return item.toLowerCase(); // Change all characters to lowercase
+        }
+    })
+
+    // Also change every item to use Title Case
+
+    form5PertandinganNames = form5PertandinganNames.map((item) => {
+        if (item !== null) {
+            return item.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))
+        } else {
+            return null
         }
     })
 
     form5Part4Data.push(form5PertandinganNames)
-
-    console.log(form5PertandinganNames)
 
     for (let i = 86; i <= 103; i++) {
         form5Part4Data.push(form5Worksheet.getRow(i).values.slice(3, 19))
