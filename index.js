@@ -13,7 +13,7 @@ const workbook = new ExcelJS.Workbook();
 
 // Ask the user for the filename of the Excel file to read from 
 
-filename = 'src/' + process.argv[2]
+filename = 'src/Data_Merit_Demerit_HR_' + process.argv[2] + '.xlsx'
 
 async function readExcelFileFromSystem(filename) {
 
