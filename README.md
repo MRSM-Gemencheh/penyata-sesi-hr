@@ -3,6 +3,8 @@ Penjana Penyata Akhir Merit Demerit Homeroom
 
 ## Cara Penggunaan
 
+Sebuah dokumentasi penuh penggunaan boleh didapati di [sini](https://docs.google.com/document/d/1EO1ZJwPavTDKv6M_ybXg-wm25_HHItIb3t_a_2tttqc/edit?usp=sharing).
+
 ### Pastikan anda mempunyai Node.js
 
 Pastikan anda mempunyai Node.js versi 12.0.0 atau ke atas. Anda boleh memuat turun Node.js di [sini](https://nodejs.org/en/download/).
