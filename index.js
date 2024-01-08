@@ -583,7 +583,7 @@ async function exportToJSON() {
             console.log(err)
         } else {
             console.log("Data saved to JSON file successfully!")
-            console.log("File path: " + `raw_data/merit_demerit_data_${year}.json`)
+            console.log("File path: " + `data_json/merit_demerit_data_${year}.json`)
         }
     }
     )

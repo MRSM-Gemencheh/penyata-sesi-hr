@@ -5,7 +5,7 @@ const fs = require('fs');
 year = process.argv[2];
 
 // Import the data in the raw_data folder depending on the year
-const data = require(`./raw_data/merit_demerit_data_${year}.json`)
+const data = require(`./data_json/merit_demerit_data_${year}.json`)
 
 // Create a new workbook
 const workbook = new ExcelJS.Workbook();
