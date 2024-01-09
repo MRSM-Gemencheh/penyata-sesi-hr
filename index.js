@@ -38,438 +38,101 @@ async function readDataFromFile() {
 
     // Part 1
 
-    // Form 1
-
-    form1Part1Data = []
-
+    let form1Part1Data, form2Part1Data, form3Part1Data, form4Part1Data, form5Part1Data
+    form1Part1Data = form2Part1Data = form3Part1Data = form4Part1Data = form5Part1Data = []
 
     for (let i = 11; i <= 28; i++) {
         form1Part1Data.push(form1Worksheet.getRow(i).values)
-    }
-
-
-    // Form 2
-
-    form2Part1Data = []
-
-
-    for (let i = 11; i <= 28; i++) {
         form2Part1Data.push(form2Worksheet.getRow(i).values)
-    }
-
-
-    // Form 3
-
-    form3Part1Data = []
-
-
-    for (let i = 11; i <= 28; i++) {
         form3Part1Data.push(form3Worksheet.getRow(i).values)
-    }
-
-    // Form 4
-
-    form4Part1Data = []
-
-
-    for (let i = 11; i <= 28; i++) {
         form4Part1Data.push(form4Worksheet.getRow(i).values)
-    }
-
-    // Form 5
-
-    form5Part1Data = []
-
-
-    for (let i = 11; i <= 28; i++) {
         form5Part1Data.push(form5Worksheet.getRow(i).values)
     }
 
-
-    // Logging the data
-
-    // console.log("Form 1 Part 1 Data:")
-    // console.log(form1Part1Data)
-    // console.log("Form 2 Part 1 Data:")
-    // console.log(form2Part1Data)
-    // console.log("Form 3 Part 1 Data:")
-    // console.log(form3Part1Data)
-    // console.log("Form 4 Part 1 Data:")
-    // console.log(form4Part1Data)
-    // console.log("Form 5 Part 1 Data:")
-    // console.log(form5Part1Data)
-
     // Part 2
 
-    // Store the data in an array of arrays
-
-    // Form 1
-
-    form1Part2Data = []
-
+    let form1Part2Data, form2Part2Data, form3Part2Data, form4Part2Data, form5Part2Data
+    form1Part2Data = form2Part2Data = form3Part2Data = form4Part2Data = form5Part2Data = []
 
     for (let i = 36; i <= 53; i++) {
         form1Part2Data.push(form1Worksheet.getRow(i).values.slice(3, 12))
-    }
-
-
-    // Form 2
-
-    form2Part2Data = []
-
-
-    for (let i = 36; i <= 53; i++) {
         form2Part2Data.push(form2Worksheet.getRow(i).values.slice(3, 12))
-    }
-
-
-    // Form 3
-
-    form3Part2Data = []
-
-
-    for (let i = 36; i <= 53; i++) {
         form3Part2Data.push(form3Worksheet.getRow(i).values.slice(3, 12))
-    }
-
-    // Form 4
-
-    form4Part2Data = []
-
-
-    for (let i = 36; i <= 53; i++) {
         form4Part2Data.push(form4Worksheet.getRow(i).values.slice(3, 12))
-    }
-
-
-    // Form 5
-
-    form5Part2Data = []
-
-
-    for (let i = 36; i <= 53; i++) {
         form5Part2Data.push(form5Worksheet.getRow(i).values.slice(3, 12))
     }
 
-
-    // Logging the data
-
-    // console.log("Form 1 Part 2 Data:")
-    // console.log(form1Part2Data)
-    // console.log("Form 2 Part 2 Data:")
-    // console.log(form2Part2Data)
-    // console.log("Form 3 Part 2 Data:")
-    // console.log(form3Part2Data)
-    // console.log("Form 4 Part 2 Data:")
-    // console.log(form4Part2Data)
-    // console.log("Form 5 Part 2 Data:")
-    // console.log(form5Part2Data)
-
     // Part 3
 
-    // Store the data in an array of arrays
-
-    // Form 1
-
-    form1Part3Data = []
-
+    let form1Part3Data, form2Part3Data, form3Part3Data, form4Part3Data, form5Part3Data
+    form1Part3Data = form2Part3Data = form3Part3Data = form4Part3Data = form5Part3Data = []
 
     for (let i = 61; i <= 78; i++) {
         form1Part3Data.push(form1Worksheet.getRow(i).values.slice(3, 13))
-    }
-
-
-
-    // Form 2
-
-    form2Part3Data = []
-
-
-    for (let i = 61; i <= 78; i++) {
         form2Part3Data.push(form2Worksheet.getRow(i).values.slice(3, 13))
-    }
-
-    // Form 3
-
-    form3Part3Data = []
-
-
-    for (let i = 61; i <= 78; i++) {
         form3Part3Data.push(form3Worksheet.getRow(i).values.slice(3, 13))
-    }
-
-
-    // Form 4
-
-    form4Part3Data = []
-
-
-    for (let i = 61; i <= 78; i++) {
         form4Part3Data.push(form4Worksheet.getRow(i).values.slice(3, 13))
-    }
-
-
-    // Form 5
-
-    form5Part3Data = []
-
-    for (let i = 61; i <= 78; i++) {
         form5Part3Data.push(form5Worksheet.getRow(i).values.slice(3, 13))
     }
 
-    // Logging the data
-
-    // console.log("Form 1 Part 3 Data:")
-    // console.log(form1Part3Data)
-    // console.log("Form 2 Part 3 Data:")
-    // console.log(form2Part3Data)
-    // console.log("Form 3 Part 3 Data:")
-    // console.log(form3Part3Data)
-    // console.log("Form 4 Part 3 Data:")
-    // console.log(form4Part3Data)
-    // console.log("Form 5 Part 3 Data:")
-    // console.log(form5Part3Data)
-
     // Part 4
-
-    // Store the data in an array of arrays
 
     // Form 1
 
-    form1Part4Data = []
-
-    // Get all of the pertandingan names from row 84, not pushing into the form1Part4Data array if duplicate
-
-    let form1PertandinganNames = []
+    let form1PertandinganNames, form2PertandinganNames, form3PertandinganNames, form4PertandinganNames, form5PertandinganNames
+    form1PertandinganNames = form2PertandinganNames = form3PertandinganNames = form4PertandinganNames = form5PertandinganNames = []
 
     for (let i = 3; i <= 19; i++) {
-        form1PertandinganNames.push(form1Worksheet.getRow(84).values[i])
-    }
-
-    // Remove duplicates from the array
-
-    form1PertandinganNames = [...new Set(form1PertandinganNames)]
-
-    // Also remove instances of 'NAMA PERTANDINGAN' and 'JUMLAH' from the array, replace them with null
-
-    form1PertandinganNames = form1PertandinganNames.map((item) => {
-        if (item === 'NAMA PERTANDINGAN' || item === 'JUMLAH' || item === 'Jumlah' || item == 'Nama Pertandingan') {
-            
-            return null
-        } else {
-            return item.toLowerCase(); // Change all characters to lowercase
-        }
-    })
-
-    // Also change every item to use Title Case
-
-    form1PertandinganNames = form1PertandinganNames.map((item) => {
-        if (item !== null) {
-            return item.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))
-        } else {
-            return null
-        }
-    })
-
-    form1Part4Data.push(form1PertandinganNames)
-
-    for (let i = 86; i <= 103; i++) {
-        form1Part4Data.push(form1Worksheet.getRow(i).values.slice(3, 19))
-    }
-
-
-    // Form 2
-
-    form2Part4Data = []
-
-    // Get all of the pertandingan names from row 84, not pushing into the form2Part4Data array if duplicate
-
-    let form2PertandinganNames = []
-
-    for (let i = 3; i <= 19; i++) {
+        // Get all of the pertandingan names from row 84
+        form1PertandinganNames.push(form1Worksheet.getRow(84).values[i]) 
         form2PertandinganNames.push(form2Worksheet.getRow(84).values[i])
-    }
-
-    // Remove duplicates from the array
-
-    form2PertandinganNames = [...new Set(form2PertandinganNames)]
-
-    // Also remove instances of 'NAMA PERTANDINGAN' and 'JUMLAH' from the array, replace them with null
-
-    form2PertandinganNames = form2PertandinganNames.map((item) => {
-        if (item === 'NAMA PERTANDINGAN' || item === 'JUMLAH' || item === 'Jumlah' || item == 'Nama Pertandingan') {
-            return null
-        } else {
-            return item.toLowerCase(); // Change all characters to lowercase
-        }
-    })
-
-    // Also change every item to use Title Case
-
-    form2PertandinganNames = form2PertandinganNames.map((item) => {
-        if (item !== null) {
-            return item.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))
-        } else {
-            return null
-        }
-    })
-
-    form2Part4Data.push(form2PertandinganNames)
-
-    for (let i = 86; i <= 103; i++) {
-        form2Part4Data.push(form2Worksheet.getRow(i).values.slice(3, 19))
-    }
-
-
-    // Form 3
-
-    form3Part4Data = []
-
-    // Get all of the pertandingan names from row 84, not pushing into the form3Part4Data array if duplicate
-
-    let form3PertandinganNames = []
-
-    for (let i = 3; i <= 19; i++) {
         form3PertandinganNames.push(form3Worksheet.getRow(84).values[i])
-    }
-
-    // Remove duplicates from the array
-
-    form3PertandinganNames = [...new Set(form3PertandinganNames)]
-
-    // Also remove instances of 'NAMA PERTANDINGAN' and 'JUMLAH' from the array, replace them with null
-
-    form3PertandinganNames = form3PertandinganNames.map((item) => {
-        if (item === 'NAMA PERTANDINGAN' || item === 'JUMLAH' || item === 'Jumlah' || item == 'Nama Pertandingan') {
-            return null
-        } else {
-            return item.toLowerCase(); // Change all characters to lowercase
-        }
-    })
-
-    // Also change every item to use Title Case
-
-    form3PertandinganNames = form3PertandinganNames.map((item) => {
-        if (item !== null) {
-            return item.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))
-        } else {
-            return null
-        }
-    })
-
-    form3Part4Data.push(form3PertandinganNames)
-
-    for (let i = 86; i <= 103; i++) {
-        form3Part4Data.push(form3Worksheet.getRow(i).values.slice(3, 19))
-    }
-
-
-    // Form 4
-
-    form4Part4Data = []
-
-    // Get all of the pertandingan names from row 84, not pushing into the form4Part4Data array if duplicate
-
-    let form4PertandinganNames = []
-
-    for (let i = 3; i <= 19; i++) {
         form4PertandinganNames.push(form4Worksheet.getRow(84).values[i])
-    }
-
-    // Remove duplicates from the array
-
-    form4PertandinganNames = [...new Set(form4PertandinganNames)]
-
-    // Also remove instances of 'NAMA PERTANDINGAN' and 'JUMLAH' from the array, replace them with null
-
-    form4PertandinganNames = form4PertandinganNames.map((item) => {
-        if (item === 'NAMA PERTANDINGAN' || item === 'JUMLAH' || item === 'Jumlah' || item == 'Nama Pertandingan') {
-            return null
-        } else {
-            return item.toLowerCase(); // Change all characters to lowercase
-        }
-    })
-
-    // Also change every item to use Title Case
-
-    form4PertandinganNames = form4PertandinganNames.map((item) => {
-        if (item !== null) {
-            return item.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))
-        } else {
-            return null
-        }
-    })
-
-    form4Part4Data.push(form4PertandinganNames)
-
-    for (let i = 86; i <= 103; i++) {
-        form4Part4Data.push(form4Worksheet.getRow(i).values.slice(3, 19))
-    }
-
-
-    // Form 5
-
-    form5Part4Data = []
-
-    // Get all of the pertandingan names from row 84, not pushing into the form5Part4Data array if duplicate
-
-    let form5PertandinganNames = []
-
-    for (let i = 3; i <= 19; i++) {
         form5PertandinganNames.push(form5Worksheet.getRow(84).values[i])
     }
-
+    
     // Remove duplicates from the array
-
+    form1PertandinganNames = [...new Set(form1PertandinganNames)]
+    form2PertandinganNames = [...new Set(form2PertandinganNames)]
+    form3PertandinganNames = [...new Set(form3PertandinganNames)]
+    form4PertandinganNames = [...new Set(form4PertandinganNames)]
     form5PertandinganNames = [...new Set(form5PertandinganNames)]
 
-    // Also remove instances of 'NAMA PERTANDINGAN' and 'JUMLAH' from the array, replace them with null
+    // Remove instances of 'NAMA PERTANDINGAN' and 'JUMLAH' from the array, replace them with null
+    // Also change every valid item to use Title Case
 
-    form5PertandinganNames = form5PertandinganNames.map((item) => {
-        if (item === 'NAMA PERTANDINGAN' || item === 'JUMLAH' || item === 'Jumlah' || item == 'Nama Pertandingan') {
-            return null
-        } else {
-            return item.toLowerCase(); // Change all characters to lowercase
-        }
-    })
+    function cleanNamesAndTitleCase(array) {
+        array = array.map((item) => {
+            if (item === 'NAMA PERTANDINGAN' || item === 'JUMLAH' || item === 'Jumlah' || item == 'Nama Pertandingan') {
+                return null
+            } else {
+                return item.toLowerCase().replace(/\b\w/g, s => s.toUpperCase());
+            }
+        })
+    }
 
-    // Also change every item to use Title Case
+    cleanNamesAndTitleCase(form1PertandinganNames)
+    cleanNamesAndTitleCase(form2PertandinganNames)
+    cleanNamesAndTitleCase(form3PertandinganNames)
+    cleanNamesAndTitleCase(form4PertandinganNames)
+    cleanNamesAndTitleCase(form5PertandinganNames)
+    
+    let form1Part4Data, form2Part4Data, form3Part4Data, form4Part4Data, form5Part4Data
+    form1Part4Data = form2Part4Data = form3Part4Data = form4Part4Data = form5Part4Data = []
 
-    form5PertandinganNames = form5PertandinganNames.map((item) => {
-        if (item !== null) {
-            return item.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))
-        } else {
-            return null
-        }
-    })
-
+    form1Part4Data.push(form1PertandinganNames)
+    form2Part4Data.push(form2PertandinganNames)
+    form3Part4Data.push(form3PertandinganNames)
+    form4Part4Data.push(form4PertandinganNames)
     form5Part4Data.push(form5PertandinganNames)
 
     for (let i = 86; i <= 103; i++) {
+        form1Part4Data.push(form1Worksheet.getRow(i).values.slice(3, 19))
+        form2Part4Data.push(form2Worksheet.getRow(i).values.slice(3, 19))
+        form3Part4Data.push(form3Worksheet.getRow(i).values.slice(3, 19))
+        form4Part4Data.push(form4Worksheet.getRow(i).values.slice(3, 19))
         form5Part4Data.push(form5Worksheet.getRow(i).values.slice(3, 19))
     }
-
-
-    // Logging the data
-
-    // console.log("Form 1 Part 4 Data:")
-    // console.log(form1Part4Data)
-    // console.log("Form 2 Part 4 Data:")
-    // console.log(form2Part4Data)
-    // console.log("Form 3 Part 4 Data:")
-    // console.log(form3Part4Data)
-    // console.log("Form 4 Part 4 Data:")
-    // console.log(form4Part4Data)
-    // console.log("Form 5 Part 4 Data:")
-    // console.log(form5Part4Data)
-
-    await exportToJSON()
-}
-
-async function exportToJSON() {
-    // Export all of the read data to a JSON file
-
-    // Create a JSON object
 
     let data = {
         "form1": {
@@ -549,19 +212,17 @@ async function exportToJSON() {
         }
     }
 
-    // Get the year from the filename (last 4 characters) before the extension
-
-    let year = filename.slice(-9, -5)
-
     // Save the JSON object to a file
 
-    fs.writeFile(`raw_data/merit_demerit_data_${year}.json`, JSON.stringify(data), (err) => {
+    fs.writeFile(`data_json/merit_demerit_data_${year}.json`, JSON.stringify(data), (err) => {
         if (err) {
             console.log(err)
         } else {
-            console.log("Data saved to JSON file successfully!")
-            console.log("File path: " + `data_json/merit_demerit_data_${year}.json`)
+            console.log("Data daripada fail Excel berjaya disimpan ke dalam fail JSON!")
+            console.log("Fail disimpan di " + `data_json/merit_demerit_data_${year}.json`)
+            console.log("Sila taip 'node write.js' untuk mula menjana penyata akhir HR.")
         }
     }
     )
+
 }
