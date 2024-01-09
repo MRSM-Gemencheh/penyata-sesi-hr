@@ -1,24 +1,26 @@
 const ExcelJS = require('exceljs');
+const prompt = require('prompt-sync')({sigint: true});
 const fs = require('fs');
-
-try {
-    if (ExcelJS) {
-        console.info("ExcelJS loaded successfully!")
-    }
-} catch (err) {
-    console.error("ExcelJS failed to load")
-}
 
 const workbook = new ExcelJS.Workbook();
 
 // Ask the user for the filename of the Excel file to read from 
 
-filename = 'src/Data_Merit_Demerit_HR_' + process.argv[2] + '.xlsx'
+year = prompt("Masukkan tahun: (20XX) ")
+
+filename = 'src/Data_Merit_Demerit_HR_' + String(year) + '.xlsx'
 
 async function readExcelFileFromSystem(filename) {
 
-    await workbook.xlsx.readFile(filename);
+    try {
+        await workbook.xlsx.readFile(filename);
+    } catch (err) {
+        console.log(err)
+        console.log("Fail tidak dijumpai! Sila pastikan fail tersebut berada di dalam folder src/ dan nama fail tersebut adalah Data_Merit_Demerit_HR_20XX.xlsx")
+        process.exit()
+    }
 
+    console.info("Fail berjaya dibaca!")
     readDataFromFile()
 
 }
@@ -32,32 +34,7 @@ async function readDataFromFile() {
     form4Worksheet = workbook.getWorksheet('TING.4')
     form5Worksheet = workbook.getWorksheet('TING.5')
 
-    // Logging all of the actualRowCounts of every form in one line
-
-    console.log("Actual row counts of every form:")
-    console.log("Form 1: " + form1Worksheet.actualRowCount + " rows")
-    console.log("Form 2: " + form2Worksheet.actualRowCount + " rows")
-    console.log("Form 3: " + form3Worksheet.actualRowCount + " rows")
-    console.log("Form 4: " + form4Worksheet.actualRowCount + " rows")
-    console.log("Form 5: " + form5Worksheet.actualRowCount + " rows")
-
-    // Logging all of the actualColumnCounts of every form
-    // If the actualColumntCount of every form is the same, then don't log the column values
-
-    if (form1Worksheet.actualColumnCount == form2Worksheet.actualColumnCount && form1Worksheet.actualColumnCount == form3Worksheet.actualColumnCount && form1Worksheet.actualColumnCount == form4Worksheet.actualColumnCount && form1Worksheet.actualColumnCount == form5Worksheet.actualColumnCount) {
-
-        console.log("All of the actual column counts from all forms are the same!")
-
-    } else {
-        console.log("Actual column counts of every form:")
-        console.log("Form 1: " + form1Worksheet.actualColumnCount)
-        console.log("Form 2: " + form2Worksheet.actualColumnCount)
-        console.log("Form 3: " + form3Worksheet.actualColumnCount)
-        console.log("Form 4: " + form4Worksheet.actualColumnCount)
-        console.log("Form 5: " + form5Worksheet.actualColumnCount)
-    }
-
-    // This will affect what rows we'll need to get data from below
+    console.info("Sedang mula membaca data dari fail...")
 
     // Part 1
 
