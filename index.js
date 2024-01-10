@@ -39,7 +39,11 @@ async function readDataFromFile() {
     // Part 1
 
     let form1Part1Data, form2Part1Data, form3Part1Data, form4Part1Data, form5Part1Data
-    form1Part1Data = form2Part1Data = form3Part1Data = form4Part1Data = form5Part1Data = []
+    form1Part1Data = []
+    form2Part1Data = []
+    form3Part1Data = []
+    form4Part1Data = []
+    form5Part1Data = []
 
     for (let i = 11; i <= 28; i++) {
         form1Part1Data.push(form1Worksheet.getRow(i).values)
@@ -52,7 +56,11 @@ async function readDataFromFile() {
     // Part 2
 
     let form1Part2Data, form2Part2Data, form3Part2Data, form4Part2Data, form5Part2Data
-    form1Part2Data = form2Part2Data = form3Part2Data = form4Part2Data = form5Part2Data = []
+    form1Part2Data = []
+    form2Part2Data = []
+    form3Part2Data = []
+    form4Part2Data = []
+    form5Part2Data = []
 
     for (let i = 36; i <= 53; i++) {
         form1Part2Data.push(form1Worksheet.getRow(i).values.slice(3, 12))
@@ -65,7 +73,11 @@ async function readDataFromFile() {
     // Part 3
 
     let form1Part3Data, form2Part3Data, form3Part3Data, form4Part3Data, form5Part3Data
-    form1Part3Data = form2Part3Data = form3Part3Data = form4Part3Data = form5Part3Data = []
+    form1Part3Data = []
+    form2Part3Data = []
+    form3Part3Data = []
+    form4Part3Data = []
+    form5Part3Data = []
 
     for (let i = 61; i <= 78; i++) {
         form1Part3Data.push(form1Worksheet.getRow(i).values.slice(3, 13))
@@ -80,7 +92,11 @@ async function readDataFromFile() {
     // Form 1
 
     let form1PertandinganNames, form2PertandinganNames, form3PertandinganNames, form4PertandinganNames, form5PertandinganNames
-    form1PertandinganNames = form2PertandinganNames = form3PertandinganNames = form4PertandinganNames = form5PertandinganNames = []
+    form1PertandinganNames = []
+    form2PertandinganNames = []
+    form3PertandinganNames = []
+    form4PertandinganNames = []
+    form5PertandinganNames = []
 
     for (let i = 3; i <= 19; i++) {
         // Get all of the pertandingan names from row 84
@@ -106,19 +122,30 @@ async function readDataFromFile() {
             if (item === 'NAMA PERTANDINGAN' || item === 'JUMLAH' || item === 'Jumlah' || item == 'Nama Pertandingan') {
                 return null
             } else {
-                return item.toLowerCase().replace(/\b\w/g, s => s.toUpperCase());
+                // Lowercase first
+                item = item.toLowerCase()
+                // Capitalize first letter of every word
+                item = item.replace(/\b\w/g, l => l.toUpperCase())
+                return item
             }
         })
+
+        return array
     }
 
-    cleanNamesAndTitleCase(form1PertandinganNames)
-    cleanNamesAndTitleCase(form2PertandinganNames)
-    cleanNamesAndTitleCase(form3PertandinganNames)
-    cleanNamesAndTitleCase(form4PertandinganNames)
-    cleanNamesAndTitleCase(form5PertandinganNames)
+    form1PertandinganNames = cleanNamesAndTitleCase(form1PertandinganNames)
+    form2PertandinganNames = cleanNamesAndTitleCase(form2PertandinganNames)
+    form3PertandinganNames = cleanNamesAndTitleCase(form3PertandinganNames)
+    form4PertandinganNames = cleanNamesAndTitleCase(form4PertandinganNames)
+    form5PertandinganNames = cleanNamesAndTitleCase(form5PertandinganNames)
+
     
     let form1Part4Data, form2Part4Data, form3Part4Data, form4Part4Data, form5Part4Data
-    form1Part4Data = form2Part4Data = form3Part4Data = form4Part4Data = form5Part4Data = []
+    form1Part4Data = []
+    form2Part4Data = []
+    form3Part4Data = []
+    form4Part4Data = []
+    form5Part4Data = []
 
     form1Part4Data.push(form1PertandinganNames)
     form2Part4Data.push(form2PertandinganNames)

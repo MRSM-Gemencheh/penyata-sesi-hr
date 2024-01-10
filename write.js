@@ -1,8 +1,9 @@
 const ExcelJS = require('exceljs');
 const fs = require('fs');
+const prompt = require('prompt-sync')({ sigint: true });
 
 // Get what year they want to generate the penyata akhir for
-year = process.argv[2];
+year = prompt("Masukkan tahun: (20XX) ")
 
 // Import the data in the raw_data folder depending on the year
 const data = require(`./data_json/merit_demerit_data_${year}.json`)
