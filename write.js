@@ -27,7 +27,6 @@ function copyFromTemplateForm1() {
         });
     }
 
-    console.log('Copied all homerooms from form 1');
 }
 
 async function writeDataToCopyForm1() {
@@ -187,7 +186,7 @@ async function writeDataToCopyForm1() {
 
     }
 
-    console.log('Done writing data to copies of Form 1');
+    console.log('Selesai menulis data ke penyata Tingkatan 1');
 
 }
 
@@ -206,7 +205,6 @@ async function copyFromTemplateForm2() {
         });
     }
 
-    console.log('Copied all homerooms from form 2');
 }
 
 async function writeDataToCopyForm2() {
@@ -368,7 +366,7 @@ async function writeDataToCopyForm2() {
 
     }
 
-    console.log('Done writing data to copies of Form 2')
+    console.log('Selesai menulis data ke penyata Tingkatan 2');
 
 
 }
@@ -387,7 +385,6 @@ async function copyFromTemplateForm3() {
         });
     }
 
-    console.log('Copied all homerooms from form 3');
 }
 
 async function writeDataToCopyForm3() {
@@ -547,7 +544,7 @@ async function writeDataToCopyForm3() {
 
     }
 
-    console.log('Done writing data to copies of Form 3')
+    console.log('Selesai menulis data ke penyata Tingkatan 3')
 
 }
 
@@ -565,7 +562,6 @@ async function copyFromTemplateForm4() {
         });
     }
 
-    console.log('Copied all homerooms from form 4');
 }
 
 async function writeDataToCopyForm4() {
@@ -725,7 +721,7 @@ async function writeDataToCopyForm4() {
 
     }
 
-    console.log('Done writing data to copies of Form 4')
+    console.log('Selesai menulis data ke penyata Tingkatan 4')
 
 }
 
@@ -744,7 +740,6 @@ async function copyFromTemplateForm5() {
         });
     }
 
-    console.log('Copied all homerooms from form 5');
 }
 
 async function writeDataToCopyForm5() {
@@ -904,28 +899,32 @@ async function writeDataToCopyForm5() {
 
     }
 
-    console.log('Done writing data to copies of Form 5')
-
+    console.log('Selesai menulis data ke penyata Tingkatan 5')
+    
 }
 
 // Run the functions
 
-copyFromTemplateForm1();
-writeDataToCopyForm1();
+async function main() {
+    
+    copyFromTemplateForm1();
+    await writeDataToCopyForm1();
+    
+    await copyFromTemplateForm2();
+    await writeDataToCopyForm2();
+    
+    await copyFromTemplateForm3();
+    await writeDataToCopyForm3();
+    
+    await copyFromTemplateForm4();
+    await writeDataToCopyForm4();
+    
+    await copyFromTemplateForm5();
+    await writeDataToCopyForm5();
+    
+    console.log(`Semua penyata berjaya dijana! Sila periksa folder penyata-akhir-${year} untuk penyata yang dijana.`)
+    
+}
 
-copyFromTemplateForm2();
-writeDataToCopyForm2();
-
-copyFromTemplateForm3();
-writeDataToCopyForm3();
-
-copyFromTemplateForm4();
-writeDataToCopyForm4();
-
-copyFromTemplateForm5();
-writeDataToCopyForm5();
-
-
-
-
+main();
 
