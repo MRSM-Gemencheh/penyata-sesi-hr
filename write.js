@@ -551,7 +551,7 @@ async function writeDataToCopyForm3() {
 // Form 4
 
 async function copyFromTemplateForm4() {
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 18; i++) {
         // Get the homeroom name
         homeroom = data.form4.part1.data[i][1];
 
@@ -565,7 +565,7 @@ async function copyFromTemplateForm4() {
 }
 
 async function writeDataToCopyForm4() {
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 18; i++) {
         // Get the homeroom name
         homeroom = data.form4.part1.data[i][1];
 
