@@ -1,11 +1,16 @@
 {
   "name": "penyata-hr",
   "version": "1.1.0",
-  "description": "Penjana laporan penyata Homeroom MRSM Gemencheh",
+  "description": "Penjana laporan penyata merit demerit Homeroom MRSM Gemencheh",
+  "tags": [
+    "MRSM-Gemencheh",
+    "js",
+    "nodejs",
+    "exceljs"
+  ],
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "nodemon ./write.js --ignore *.json"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -22,6 +27,7 @@
     "prompt-sync": "^4.2.0"
   },
   "devDependencies": {
+    "jest": "^29.7.0",
     "nodemon": "^3.0.2"
   }
 }
