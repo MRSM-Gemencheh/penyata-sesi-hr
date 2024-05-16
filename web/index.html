@@ -4,20 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penjana Penyata Akhir HR</title>
+    <title>Penjana Penyata Merit Demerit HR</title>
+    <link rel="icon" href="./mrsmlogo.png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
 </head>
 
 <body>
-    <h1>Penjana Penyata Akhir HR</h1>
+    <section class="hero is-info">
+        <div class="hero-body">
+          <p class="title">Penjana Penyata Merit Demerit HR</p>
+          <p class="subtitle">Dibangunkan pada April 2023</p>
+        </div>
+      </section>
 
+    <div class="box">
+        <p class="subtitle">Sila muat naik fail data merit demerit HR bagi tahun ini:</p>
+        <input class="button is-info" type="file" id="data-file-selector" accept=".xlsx">
 
-    <input type="file" id="data-file-selector" accept=".xlsx">
+        <br><br><br>
 
-    <input type="file" id="template-file-selector" accept=".xlsx">
+        <p class="subtitle">Sila muat naik fail template penyata HR bagi tahun ini:</p>
+        <input class="button is-info" type="file" id="template-file-selector" accept=".xlsx">
+        
+        <hr>
+        
+        <div class="button is-primary">Jana Penyata</div>
+    </div>
 
-    
-
-
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Penjana Penyata Merit Demerit HR</strong> oleh <a href="https://github.com/MagusWyvern">Adi Ahmad Danish</a>. Sumber kod pengaturcaraan berlesen
+                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. Bahan dalam laman web berlesen <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+            </p>
+        </div>
+    </footer>
 </body>
 
 </html>
