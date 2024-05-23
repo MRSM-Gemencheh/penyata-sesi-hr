@@ -46,6 +46,7 @@ function handleTemplateFileUpload(event) {
 
 let meritData = {} // This will be populated with data from the excel file soon.
 let statementFiles = []
+const year = new Date().getFullYear();
 
 // Function to process data from data file
 function processExcelData(data) {
@@ -273,13 +274,11 @@ function processExcelData(data) {
 // Function to process template from template file
 function processExcelTemplate(data) {
 
-    let files = []
     const workbook = new ExcelJS.Workbook();
     workbook.xlsx.load(data).then(workbook => {
         // Process the workbook (e.g., read sheets, extract data)
         console.log("Template file loaded successfully:", workbook);
 
-        const year = new Date().getFullYear();
         async function writeDataToCopyForm1() {
             for (let i = 0; i < 15; i++) {
                 // Get the homeroom name
@@ -429,14 +428,640 @@ function processExcelTemplate(data) {
                 const buffer = await workbook.xlsx.writeBuffer();
                 statementFiles.push({ name: `1${homeroom}-${year}.xlsx`, content: buffer });
 
+            }
+            // createZip(statementFiles, "form1");
+            // TODO: Figure out why the updated version of the files variable is not accessible outside of this function
+        }
+        
+        writeDataToCopyForm1()
+
+        async function writeDataToCopyForm2() {
+            for (let i = 0; i < 15; i++) {
+                // Get the homeroom name
+
+                
+                let homeroom = meritData.form2.part1.data[i][1];
+
+                const worksheet = workbook.getWorksheet('Sheet1');
+
+                // Write the data to the copy
+
+                // Change the homeroom name
+
+                const cell = worksheet.getCell('B8');
+
+                cell.value = `HOMEROOM 1${homeroom} ${year}`;
+
+                // Part 1
+
+                let cellpt1_1 = worksheet.getCell('D16');
+                cellpt1_1.value = meritData.form2.part1.data[i][3] || 0;
+
+                let cellpt1_2 = worksheet.getCell('E16');
+                cellpt1_2.value = meritData.form2.part1.data[i][4] || 0;
+
+                let cellpt1_3 = worksheet.getCell('D17');
+                cellpt1_3.value = meritData.form2.part1.data[i][5] || 0;
+
+                let cellpt1_4 = worksheet.getCell('E17');
+                cellpt1_4.value = meritData.form2.part1.data[i][6] || 0;
+
+                let cellpt1_5 = worksheet.getCell('D18');
+                cellpt1_5.value = meritData.form2.part1.data[i][7] || 0;
+
+                let cellpt1_6 = worksheet.getCell('E18');
+                cellpt1_6.value = meritData.form2.part1.data[i][8] || 0;
+
+                let cellpt1_8 = worksheet.getCell('D19')
+                cellpt1_8.value = meritData.form2.part1.data[i][10] || 0;
+
+                // Part 2 (Cells D22, E22, D23, E23, D24, E24, D25, E25)
+
+                let cellpt2_1 = worksheet.getCell('D22');
+                cellpt2_1.value = meritData.form2.part2.data[i][0] || 0;
+
+                let cellpt2_2 = worksheet.getCell('E22');
+                cellpt2_2.value = meritData.form2.part2.data[i][1] || 0;
+
+                let cellpt2_3 = worksheet.getCell('D23');
+                cellpt2_3.value = meritData.form2.part2.data[i][2] || 0;
+
+                let cellpt2_4 = worksheet.getCell('E23');
+                cellpt2_4.value = meritData.form2.part2.data[i][3] || 0;
+
+                let cellpt2_5 = worksheet.getCell('D24');
+                cellpt2_5.value = meritData.form2.part2.data[i][4] || 0;
+
+                let cellpt2_6 = worksheet.getCell('E24');
+                cellpt2_6.value = meritData.form2.part2.data[i][5] || 0;
+
+                let cellpt2_7 = worksheet.getCell('D25');
+                cellpt2_7.value = meritData.form2.part2.data[i][6] || 0;
+
+                let cellpt2_8 = worksheet.getCell('E25');
+                cellpt2_8.value = meritData.form2.part2.data[i][7] || 0;
+
+                // Part 3 (Cells E28, E29, E30, E31, )
+
+                let cellpt3_1 = worksheet.getCell('E28');
+                cellpt3_1.value = meritData.form2.part3.data[i][0] + meritData.form2.part3.data[i][1] + meritData.form2.part3.data[i][2] || 0;
+
+                let cellpt3_2 = worksheet.getCell('E29');
+                cellpt3_2.value = meritData.form2.part3.data[i][3] + meritData.form2.part3.data[i][4] + meritData.form2.part3.data[i][5] || 0;
+
+                let cellpt3_3 = worksheet.getCell('E30');
+                cellpt3_3.value = meritData.form2.part3.data[i][6] + meritData.form2.part3.data[i][7] + meritData.form2.part3.data[i][8] || 0;
+
+                let cellpt3_4 = worksheet.getCell('E31');
+                cellpt3_4.value = 0
+
+                // Part 4 (Cells D34, E34, D35, E35, D36, E36, D37, E37, D38, E38, D39, E39, D40, E40) depending on how many pertandingans there are
+
+                // Check number of pertandingans and only write to their respective cells, going down for each pertandingan
+
+                let cellpt4_1 = worksheet.getCell('D34');
+                cellpt4_1.value = meritData.form2.part4.data[i + 1][0] || 0;
+
+                let cellpt4_2 = worksheet.getCell('E34');
+                cellpt4_2.value = meritData.form2.part4.data[i + 1][1] || 0;
+
+                let cellpt4_3 = worksheet.getCell('D35');
+                cellpt4_3.value = meritData.form2.part4.data[i + 1][2] || 0;
+
+                let cellpt4_4 = worksheet.getCell('E35');
+                cellpt4_4.value = meritData.form2.part4.data[i + 1][3] || 0;
+
+                let cellpt4_5 = worksheet.getCell('D36');
+                cellpt4_5.value = meritData.form2.part4.data[i + 1][4] || 0;
+
+                let cellpt4_6 = worksheet.getCell('E36');
+                cellpt4_6.value = meritData.form2.part4.data[i + 1][5] || 0;
+
+                let cellpt4_7 = worksheet.getCell('D37');
+                cellpt4_7.value = meritData.form2.part4.data[i + 1][6] || 0;
+
+                let cellpt4_8 = worksheet.getCell('E37');
+                cellpt4_8.value = meritData.form2.part4.data[i + 1][7] || 0;
+
+                let cellpt4_9 = worksheet.getCell('D38');
+                cellpt4_9.value = meritData.form2.part4.data[i + 1][8] || 0;
+
+                let cellpt4_10 = worksheet.getCell('E38');
+                cellpt4_10.value = meritData.form2.part4.data[i + 1][9] || 0;
+
+                let cellpt4_11 = worksheet.getCell('D39');
+                cellpt4_11.value = meritData.form2.part4.data[i + 1][10] || 0;
+
+                let cellpt4_12 = worksheet.getCell('E39');
+                cellpt4_12.value = meritData.form2.part4.data[i + 1][11] || 0;
+
+                let cellpt4_13 = worksheet.getCell('D40');
+                cellpt4_13.value = meritData.form2.part4.data[i + 1][12] || 0;
+
+                let cellpt4_14 = worksheet.getCell('E40');
+                cellpt4_14.value = meritData.form2.part4.data[i + 1][13] || 0;
+
+                let cellpt4_15 = worksheet.getCell('D41');
+                cellpt4_15.value = meritData.form2.part4.data[i + 1][14] || 0;
+
+                let cellpt4_16 = worksheet.getCell('E41');
+                cellpt4_16.value = meritData.form2.part4.data[i + 1][15] || 0;
+
+                let form2PertandinganNames = meritData.form2.part4.data[0];
+
+                // Fil in the pertandingan names from C34 until C40
+
+                for (let j = 0; j < form2PertandinganNames.length; j++) {
+                    let cellpt4_9 = worksheet.getCell(`C${34 + j}`);
+                    cellpt4_9.value = form2PertandinganNames[j];
+
+                    let cellpt4_10 = worksheet.getCell('C41');
+                    cellpt4_10.value = '';
+                }
+
+                // Write the data to the copy
+
+                const buffer = await workbook.xlsx.writeBuffer();
+                statementFiles.push({ name: `2${homeroom}-${year}.xlsx`, content: buffer });
+
                 // createZip(files);
                 
             }
             // TODO: Figure out why the updated version of the files variable is not accessible outside of this function
         }
         
-        writeDataToCopyForm1()
+        writeDataToCopyForm2()
 
+        async function writeDataToCopyForm3() {
+            for (let i = 0; i < 15; i++) {
+                // Get the homeroom name
+
+                
+                let homeroom = meritData.form3.part1.data[i][1];
+
+                const worksheet = workbook.getWorksheet('Sheet1');
+
+                // Write the data to the copy
+
+                // Change the homeroom name
+
+                const cell = worksheet.getCell('B8');
+
+                cell.value = `HOMEROOM 1${homeroom} ${year}`;
+
+                // Part 1
+
+                let cellpt1_1 = worksheet.getCell('D16');
+                cellpt1_1.value = meritData.form3.part1.data[i][3] || 0;
+
+                let cellpt1_2 = worksheet.getCell('E16');
+                cellpt1_2.value = meritData.form3.part1.data[i][4] || 0;
+
+                let cellpt1_3 = worksheet.getCell('D17');
+                cellpt1_3.value = meritData.form3.part1.data[i][5] || 0;
+
+                let cellpt1_4 = worksheet.getCell('E17');
+                cellpt1_4.value = meritData.form3.part1.data[i][6] || 0;
+
+                let cellpt1_5 = worksheet.getCell('D18');
+                cellpt1_5.value = meritData.form3.part1.data[i][7] || 0;
+
+                let cellpt1_6 = worksheet.getCell('E18');
+                cellpt1_6.value = meritData.form3.part1.data[i][8] || 0;
+
+                let cellpt1_8 = worksheet.getCell('D19')
+                cellpt1_8.value = meritData.form3.part1.data[i][10] || 0;
+
+                // Part 2 (Cells D22, E22, D23, E23, D24, E24, D25, E25)
+
+                let cellpt2_1 = worksheet.getCell('D22');
+                cellpt2_1.value = meritData.form3.part2.data[i][0] || 0;
+
+                let cellpt2_2 = worksheet.getCell('E22');
+                cellpt2_2.value = meritData.form3.part2.data[i][1] || 0;
+
+                let cellpt2_3 = worksheet.getCell('D23');
+                cellpt2_3.value = meritData.form3.part2.data[i][2] || 0;
+
+                let cellpt2_4 = worksheet.getCell('E23');
+                cellpt2_4.value = meritData.form3.part2.data[i][3] || 0;
+
+                let cellpt2_5 = worksheet.getCell('D24');
+                cellpt2_5.value = meritData.form3.part2.data[i][4] || 0;
+
+                let cellpt2_6 = worksheet.getCell('E24');
+                cellpt2_6.value = meritData.form3.part2.data[i][5] || 0;
+
+                let cellpt2_7 = worksheet.getCell('D25');
+                cellpt2_7.value = meritData.form3.part2.data[i][6] || 0;
+
+                let cellpt2_8 = worksheet.getCell('E25');
+                cellpt2_8.value = meritData.form3.part2.data[i][7] || 0;
+
+                // Part 3 (Cells E28, E29, E30, E31, )
+
+                let cellpt3_1 = worksheet.getCell('E28');
+                cellpt3_1.value = meritData.form3.part3.data[i][0] + meritData.form3.part3.data[i][1] + meritData.form3.part3.data[i][2] || 0;
+
+                let cellpt3_2 = worksheet.getCell('E29');
+                cellpt3_2.value = meritData.form3.part3.data[i][3] + meritData.form3.part3.data[i][4] + meritData.form3.part3.data[i][5] || 0;
+
+                let cellpt3_3 = worksheet.getCell('E30');
+                cellpt3_3.value = meritData.form3.part3.data[i][6] + meritData.form3.part3.data[i][7] + meritData.form3.part3.data[i][8] || 0;
+
+                let cellpt3_4 = worksheet.getCell('E31');
+                cellpt3_4.value = 0
+
+                // Part 4 (Cells D34, E34, D35, E35, D36, E36, D37, E37, D38, E38, D39, E39, D40, E40) depending on how many pertandingans there are
+
+                // Check number of pertandingans and only write to their respective cells, going down for each pertandingan
+
+                let cellpt4_1 = worksheet.getCell('D34');
+                cellpt4_1.value = meritData.form3.part4.data[i + 1][0] || 0;
+
+                let cellpt4_2 = worksheet.getCell('E34');
+                cellpt4_2.value = meritData.form3.part4.data[i + 1][1] || 0;
+
+                let cellpt4_3 = worksheet.getCell('D35');
+                cellpt4_3.value = meritData.form3.part4.data[i + 1][2] || 0;
+
+                let cellpt4_4 = worksheet.getCell('E35');
+                cellpt4_4.value = meritData.form3.part4.data[i + 1][3] || 0;
+
+                let cellpt4_5 = worksheet.getCell('D36');
+                cellpt4_5.value = meritData.form3.part4.data[i + 1][4] || 0;
+
+                let cellpt4_6 = worksheet.getCell('E36');
+                cellpt4_6.value = meritData.form3.part4.data[i + 1][5] || 0;
+
+                let cellpt4_7 = worksheet.getCell('D37');
+                cellpt4_7.value = meritData.form3.part4.data[i + 1][6] || 0;
+
+                let cellpt4_8 = worksheet.getCell('E37');
+                cellpt4_8.value = meritData.form3.part4.data[i + 1][7] || 0;
+
+                let cellpt4_9 = worksheet.getCell('D38');
+                cellpt4_9.value = meritData.form3.part4.data[i + 1][8] || 0;
+
+                let cellpt4_10 = worksheet.getCell('E38');
+                cellpt4_10.value = meritData.form3.part4.data[i + 1][9] || 0;
+
+                let cellpt4_11 = worksheet.getCell('D39');
+                cellpt4_11.value = meritData.form3.part4.data[i + 1][10] || 0;
+
+                let cellpt4_12 = worksheet.getCell('E39');
+                cellpt4_12.value = meritData.form3.part4.data[i + 1][11] || 0;
+
+                let cellpt4_13 = worksheet.getCell('D40');
+                cellpt4_13.value = meritData.form3.part4.data[i + 1][12] || 0;
+
+                let cellpt4_14 = worksheet.getCell('E40');
+                cellpt4_14.value = meritData.form3.part4.data[i + 1][13] || 0;
+
+                let cellpt4_15 = worksheet.getCell('D41');
+                cellpt4_15.value = meritData.form3.part4.data[i + 1][14] || 0;
+
+                let cellpt4_16 = worksheet.getCell('E41');
+                cellpt4_16.value = meritData.form3.part4.data[i + 1][15] || 0;
+
+                let form3PertandinganNames = meritData.form3.part4.data[0];
+
+                // Fil in the pertandingan names from C34 until C40
+
+                for (let j = 0; j < form3PertandinganNames.length; j++) {
+                    let cellpt4_9 = worksheet.getCell(`C${34 + j}`);
+                    cellpt4_9.value = form3PertandinganNames[j];
+
+                    let cellpt4_10 = worksheet.getCell('C41');
+                    cellpt4_10.value = '';
+                }
+
+                // Write the data to the copy
+
+                const buffer = await workbook.xlsx.writeBuffer();
+                statementFiles.push({ name: `3${homeroom}-${year}.xlsx`, content: buffer });
+
+                // createZip(files);
+                
+            }
+            // TODO: Figure out why the updated version of the files variable is not accessible outside of this function
+        }
+        
+        writeDataToCopyForm3()
+
+        async function writeDataToCopyForm4() {
+            for (let i = 0; i < 15; i++) {
+                // Get the homeroom name
+
+                
+                let homeroom = meritData.form4.part1.data[i][1];
+
+                const worksheet = workbook.getWorksheet('Sheet1');
+
+                // Write the data to the copy
+
+                // Change the homeroom name
+
+                const cell = worksheet.getCell('B8');
+
+                cell.value = `HOMEROOM 1${homeroom} ${year}`;
+
+                // Part 1
+
+                let cellpt1_1 = worksheet.getCell('D16');
+                cellpt1_1.value = meritData.form4.part1.data[i][3] || 0;
+
+                let cellpt1_2 = worksheet.getCell('E16');
+                cellpt1_2.value = meritData.form4.part1.data[i][4] || 0;
+
+                let cellpt1_3 = worksheet.getCell('D17');
+                cellpt1_3.value = meritData.form4.part1.data[i][5] || 0;
+
+                let cellpt1_4 = worksheet.getCell('E17');
+                cellpt1_4.value = meritData.form4.part1.data[i][6] || 0;
+
+                let cellpt1_5 = worksheet.getCell('D18');
+                cellpt1_5.value = meritData.form4.part1.data[i][7] || 0;
+
+                let cellpt1_6 = worksheet.getCell('E18');
+                cellpt1_6.value = meritData.form4.part1.data[i][8] || 0;
+
+                let cellpt1_8 = worksheet.getCell('D19')
+                cellpt1_8.value = meritData.form4.part1.data[i][10] || 0;
+
+                // Part 2 (Cells D22, E22, D23, E23, D24, E24, D25, E25)
+
+                let cellpt2_1 = worksheet.getCell('D22');
+                cellpt2_1.value = meritData.form4.part2.data[i][0] || 0;
+
+                let cellpt2_2 = worksheet.getCell('E22');
+                cellpt2_2.value = meritData.form4.part2.data[i][1] || 0;
+
+                let cellpt2_3 = worksheet.getCell('D23');
+                cellpt2_3.value = meritData.form4.part2.data[i][2] || 0;
+
+                let cellpt2_4 = worksheet.getCell('E23');
+                cellpt2_4.value = meritData.form4.part2.data[i][3] || 0;
+
+                let cellpt2_5 = worksheet.getCell('D24');
+                cellpt2_5.value = meritData.form4.part2.data[i][4] || 0;
+
+                let cellpt2_6 = worksheet.getCell('E24');
+                cellpt2_6.value = meritData.form4.part2.data[i][5] || 0;
+
+                let cellpt2_7 = worksheet.getCell('D25');
+                cellpt2_7.value = meritData.form4.part2.data[i][6] || 0;
+
+                let cellpt2_8 = worksheet.getCell('E25');
+                cellpt2_8.value = meritData.form4.part2.data[i][7] || 0;
+
+                // Part 3 (Cells E28, E29, E30, E31, )
+
+                let cellpt3_1 = worksheet.getCell('E28');
+                cellpt3_1.value = meritData.form4.part3.data[i][0] + meritData.form4.part3.data[i][1] + meritData.form4.part3.data[i][2] || 0;
+
+                let cellpt3_2 = worksheet.getCell('E29');
+                cellpt3_2.value = meritData.form4.part3.data[i][3] + meritData.form4.part3.data[i][4] + meritData.form4.part3.data[i][5] || 0;
+
+                let cellpt3_3 = worksheet.getCell('E30');
+                cellpt3_3.value = meritData.form4.part3.data[i][6] + meritData.form4.part3.data[i][7] + meritData.form4.part3.data[i][8] || 0;
+
+                let cellpt3_4 = worksheet.getCell('E31');
+                cellpt3_4.value = 0
+
+                // Part 4 (Cells D34, E34, D35, E35, D36, E36, D37, E37, D38, E38, D39, E39, D40, E40) depending on how many pertandingans there are
+
+                // Check number of pertandingans and only write to their respective cells, going down for each pertandingan
+
+                let cellpt4_1 = worksheet.getCell('D34');
+                cellpt4_1.value = meritData.form4.part4.data[i + 1][0] || 0;
+
+                let cellpt4_2 = worksheet.getCell('E34');
+                cellpt4_2.value = meritData.form4.part4.data[i + 1][1] || 0;
+
+                let cellpt4_3 = worksheet.getCell('D35');
+                cellpt4_3.value = meritData.form4.part4.data[i + 1][2] || 0;
+
+                let cellpt4_4 = worksheet.getCell('E35');
+                cellpt4_4.value = meritData.form4.part4.data[i + 1][3] || 0;
+
+                let cellpt4_5 = worksheet.getCell('D36');
+                cellpt4_5.value = meritData.form4.part4.data[i + 1][4] || 0;
+
+                let cellpt4_6 = worksheet.getCell('E36');
+                cellpt4_6.value = meritData.form4.part4.data[i + 1][5] || 0;
+
+                let cellpt4_7 = worksheet.getCell('D37');
+                cellpt4_7.value = meritData.form4.part4.data[i + 1][6] || 0;
+
+                let cellpt4_8 = worksheet.getCell('E37');
+                cellpt4_8.value = meritData.form4.part4.data[i + 1][7] || 0;
+
+                let cellpt4_9 = worksheet.getCell('D38');
+                cellpt4_9.value = meritData.form4.part4.data[i + 1][8] || 0;
+
+                let cellpt4_10 = worksheet.getCell('E38');
+                cellpt4_10.value = meritData.form4.part4.data[i + 1][9] || 0;
+
+                let cellpt4_11 = worksheet.getCell('D39');
+                cellpt4_11.value = meritData.form4.part4.data[i + 1][10] || 0;
+
+                let cellpt4_12 = worksheet.getCell('E39');
+                cellpt4_12.value = meritData.form4.part4.data[i + 1][11] || 0;
+
+                let cellpt4_13 = worksheet.getCell('D40');
+                cellpt4_13.value = meritData.form4.part4.data[i + 1][12] || 0;
+
+                let cellpt4_14 = worksheet.getCell('E40');
+                cellpt4_14.value = meritData.form4.part4.data[i + 1][13] || 0;
+
+                let cellpt4_15 = worksheet.getCell('D41');
+                cellpt4_15.value = meritData.form4.part4.data[i + 1][14] || 0;
+
+                let cellpt4_16 = worksheet.getCell('E41');
+                cellpt4_16.value = meritData.form4.part4.data[i + 1][15] || 0;
+
+                let form4PertandinganNames = meritData.form4.part4.data[0];
+
+                // Fil in the pertandingan names from C34 until C40
+
+                for (let j = 0; j < form4PertandinganNames.length; j++) {
+                    let cellpt4_9 = worksheet.getCell(`C${34 + j}`);
+                    cellpt4_9.value = form4PertandinganNames[j];
+
+                    let cellpt4_10 = worksheet.getCell('C41');
+                    cellpt4_10.value = '';
+                }
+
+                // Write the data to the copy
+
+                const buffer = await workbook.xlsx.writeBuffer();
+                statementFiles.push({ name: `4${homeroom}-${year}.xlsx`, content: buffer });
+
+                // createZip(files);
+                
+            }
+            // TODO: Figure out why the updated version of the files variable is not accessible outside of this function
+        }
+        
+        writeDataToCopyForm4()
+
+        async function writeDataToCopyForm5() {
+            for (let i = 0; i < 15; i++) {
+                // Get the homeroom name
+
+                
+                let homeroom = meritData.form5.part1.data[i][1];
+
+                const worksheet = workbook.getWorksheet('Sheet1');
+
+                // Write the data to the copy
+
+                // Change the homeroom name
+
+                const cell = worksheet.getCell('B8');
+
+                cell.value = `HOMEROOM 1${homeroom} ${year}`;
+
+                // Part 1
+
+                let cellpt1_1 = worksheet.getCell('D16');
+                cellpt1_1.value = meritData.form5.part1.data[i][3] || 0;
+
+                let cellpt1_2 = worksheet.getCell('E16');
+                cellpt1_2.value = meritData.form5.part1.data[i][4] || 0;
+
+                let cellpt1_3 = worksheet.getCell('D17');
+                cellpt1_3.value = meritData.form5.part1.data[i][5] || 0;
+
+                let cellpt1_4 = worksheet.getCell('E17');
+                cellpt1_4.value = meritData.form5.part1.data[i][6] || 0;
+
+                let cellpt1_5 = worksheet.getCell('D18');
+                cellpt1_5.value = meritData.form5.part1.data[i][7] || 0;
+
+                let cellpt1_6 = worksheet.getCell('E18');
+                cellpt1_6.value = meritData.form5.part1.data[i][8] || 0;
+
+                let cellpt1_8 = worksheet.getCell('D19')
+                cellpt1_8.value = meritData.form5.part1.data[i][10] || 0;
+
+                // Part 2 (Cells D22, E22, D23, E23, D24, E24, D25, E25)
+
+                let cellpt2_1 = worksheet.getCell('D22');
+                cellpt2_1.value = meritData.form5.part2.data[i][0] || 0;
+
+                let cellpt2_2 = worksheet.getCell('E22');
+                cellpt2_2.value = meritData.form5.part2.data[i][1] || 0;
+
+                let cellpt2_3 = worksheet.getCell('D23');
+                cellpt2_3.value = meritData.form5.part2.data[i][2] || 0;
+
+                let cellpt2_4 = worksheet.getCell('E23');
+                cellpt2_4.value = meritData.form5.part2.data[i][3] || 0;
+
+                let cellpt2_5 = worksheet.getCell('D24');
+                cellpt2_5.value = meritData.form5.part2.data[i][4] || 0;
+
+                let cellpt2_6 = worksheet.getCell('E24');
+                cellpt2_6.value = meritData.form5.part2.data[i][5] || 0;
+
+                let cellpt2_7 = worksheet.getCell('D25');
+                cellpt2_7.value = meritData.form5.part2.data[i][6] || 0;
+
+                let cellpt2_8 = worksheet.getCell('E25');
+                cellpt2_8.value = meritData.form5.part2.data[i][7] || 0;
+
+                // Part 3 (Cells E28, E29, E30, E31, )
+
+                let cellpt3_1 = worksheet.getCell('E28');
+                cellpt3_1.value = meritData.form5.part3.data[i][0] + meritData.form5.part3.data[i][1] + meritData.form5.part3.data[i][2] || 0;
+
+                let cellpt3_2 = worksheet.getCell('E29');
+                cellpt3_2.value = meritData.form5.part3.data[i][3] + meritData.form5.part3.data[i][4] + meritData.form5.part3.data[i][5] || 0;
+
+                let cellpt3_3 = worksheet.getCell('E30');
+                cellpt3_3.value = meritData.form5.part3.data[i][6] + meritData.form5.part3.data[i][7] + meritData.form5.part3.data[i][8] || 0;
+
+                let cellpt3_4 = worksheet.getCell('E31');
+                cellpt3_4.value = 0
+
+                // Part 4 (Cells D34, E34, D35, E35, D36, E36, D37, E37, D38, E38, D39, E39, D40, E40) depending on how many pertandingans there are
+
+                // Check number of pertandingans and only write to their respective cells, going down for each pertandingan
+
+                let cellpt4_1 = worksheet.getCell('D34');
+                cellpt4_1.value = meritData.form5.part4.data[i + 1][0] || 0;
+
+                let cellpt4_2 = worksheet.getCell('E34');
+                cellpt4_2.value = meritData.form5.part4.data[i + 1][1] || 0;
+
+                let cellpt4_3 = worksheet.getCell('D35');
+                cellpt4_3.value = meritData.form5.part4.data[i + 1][2] || 0;
+
+                let cellpt4_4 = worksheet.getCell('E35');
+                cellpt4_4.value = meritData.form5.part4.data[i + 1][3] || 0;
+
+                let cellpt4_5 = worksheet.getCell('D36');
+                cellpt4_5.value = meritData.form5.part4.data[i + 1][4] || 0;
+
+                let cellpt4_6 = worksheet.getCell('E36');
+                cellpt4_6.value = meritData.form5.part4.data[i + 1][5] || 0;
+
+                let cellpt4_7 = worksheet.getCell('D37');
+                cellpt4_7.value = meritData.form5.part4.data[i + 1][6] || 0;
+
+                let cellpt4_8 = worksheet.getCell('E37');
+                cellpt4_8.value = meritData.form5.part4.data[i + 1][7] || 0;
+
+                let cellpt4_9 = worksheet.getCell('D38');
+                cellpt4_9.value = meritData.form5.part4.data[i + 1][8] || 0;
+
+                let cellpt4_10 = worksheet.getCell('E38');
+                cellpt4_10.value = meritData.form5.part4.data[i + 1][9] || 0;
+
+                let cellpt4_11 = worksheet.getCell('D39');
+                cellpt4_11.value = meritData.form5.part4.data[i + 1][10] || 0;
+
+                let cellpt4_12 = worksheet.getCell('E39');
+                cellpt4_12.value = meritData.form5.part4.data[i + 1][11] || 0;
+
+                let cellpt4_13 = worksheet.getCell('D40');
+                cellpt4_13.value = meritData.form5.part4.data[i + 1][12] || 0;
+
+                let cellpt4_14 = worksheet.getCell('E40');
+                cellpt4_14.value = meritData.form5.part4.data[i + 1][13] || 0;
+
+                let cellpt4_15 = worksheet.getCell('D41');
+                cellpt4_15.value = meritData.form5.part4.data[i + 1][14] || 0;
+
+                let cellpt4_16 = worksheet.getCell('E41');
+                cellpt4_16.value = meritData.form5.part4.data[i + 1][15] || 0;
+
+                let form5PertandinganNames = meritData.form5.part4.data[0];
+
+                // Fil in the pertandingan names from C34 until C40
+
+                for (let j = 0; j < form5PertandinganNames.length; j++) {
+                    let cellpt4_9 = worksheet.getCell(`C${34 + j}`);
+                    cellpt4_9.value = form5PertandinganNames[j];
+
+                    let cellpt4_10 = worksheet.getCell('C41');
+                    cellpt4_10.value = '';
+                }
+
+                // Write the data to the copy
+
+                const buffer = await workbook.xlsx.writeBuffer();
+                statementFiles.push({ name: `5${homeroom}-${year}.xlsx`, content: buffer });
+
+                // createZip(files);
+                
+            }
+            // TODO: Figure out why the updated version of the files variable is not accessible outside of this function
+        }
+        
+        writeDataToCopyForm5()
 
     });
 
@@ -446,15 +1071,17 @@ const downloadButton = document.getElementById('download')
 downloadButton.addEventListener('click', generateAndDownloadZip);
 
 
-async function createZip(files) {
+async function createZip(files, form) {
     const zip = new JSZip();
 
     files.forEach(file => {
         zip.file(file.name, file.content);
     });
 
+
+
     const content = await zip.generateAsync({ type: 'blob' });
-    saveAs(content, 'penyata-merit-demerit-HR.zip');
+    saveAs(content, `penyata-merit-demerit-HR-${year}.zip`);
 }
 
 async function generateAndDownloadZip() {
