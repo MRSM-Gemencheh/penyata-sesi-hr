@@ -7,7 +7,7 @@ try {
         console.info("ExcelJS loaded successfully!")
     }
 } catch (err) {
-    console.error("ExcelJS failed to load")
+    console.error("ExcelJS failed to load, try reloading?")
 }
 
 // Add event listener for data file input
@@ -44,17 +44,20 @@ function handleTemplateFileUpload(event) {
     reader.readAsArrayBuffer(file);
 }
 
-let meritData = {} // This will be populated with data from the excel file soon.
-let statementFiles = []
-const year = new Date().getFullYear();
+const year = new Date().getFullYear(); // To include in the final zip file name
+let meritData = {} // This will be populated with data from the excel file soon
+let statementFiles = [] // Generated excel files will be pushed to this array
 
 // Function to process data from data file
+// This extracts data from the file and pushes the data into the `meritData` JSON object
 function processExcelData(data) {
     const workbook = new ExcelJS.Workbook();
     workbook.xlsx.load(data).then(workbook => {
-        // Process the workbook (e.g., read sheets, extract data)
+
         console.log("Data file loaded successfully:", workbook);
 
+        // TODO: Check if the uploaded excel file is correct
+        // This can be done by checking certain columns if they exist or not
 
         const form1Worksheet = workbook.getWorksheet('TING.1')
         const form2Worksheet = workbook.getWorksheet('TING.2')
@@ -272,31 +275,31 @@ function processExcelData(data) {
 }
 
 // Function to process template from template file
+// This uses the data in the `meritData` JSON object and puts them into relevant cells in the template file
+// A new excel file is generated and populated with data for every homeroom in every form
 function processExcelTemplate(data) {
 
     const workbook = new ExcelJS.Workbook();
     workbook.xlsx.load(data).then(workbook => {
-        // Process the workbook (e.g., read sheets, extract data)
+    
         console.log("Template file loaded successfully:", workbook);
 
-        async function writeDataToCopyForm1() {
-            for (let i = 0; i < 15; i++) {
-                // Get the homeroom name
+        // TODO: Check if the uploaded template file is correct or not
+        // Same as above, this can be done by checking if the file has a certain piece of text
 
-                
+        async function generateStatementsForm1() {
+            for (let i = 0; i < 15; i++) {
+
+                // Get the homeroom name
                 let homeroom = meritData.form1.part1.data[i][1];
 
                 const worksheet = workbook.getWorksheet('Sheet1');
 
-                // Write the data to the copy
-
-                // Change the homeroom name
-
+                // Change the homeroom name in the template to the current one being iterated
                 const cell = worksheet.getCell('B8');
-
                 cell.value = `HOMEROOM 1${homeroom} ${year}`;
 
-                // Part 1
+                // Part 1 
 
                 let cellpt1_1 = worksheet.getCell('D16');
                 cellpt1_1.value = meritData.form1.part1.data[i][3] || 0;
@@ -360,8 +363,7 @@ function processExcelTemplate(data) {
                 cellpt3_4.value = 0
 
                 // Part 4 (Cells D34, E34, D35, E35, D36, E36, D37, E37, D38, E38, D39, E39, D40, E40) depending on how many pertandingans there are
-
-                // Check number of pertandingans and only write to their respective cells, going down for each pertandingan
+                // Check number of pertandingans and only write to their respective cells, going down a row for each pertandingan
 
                 let cellpt4_1 = worksheet.getCell('D34');
                 cellpt4_1.value = meritData.form1.part4.data[i + 1][0] || 0;
@@ -413,7 +415,7 @@ function processExcelTemplate(data) {
 
                 let form1PertandinganNames = meritData.form1.part4.data[0];
 
-                // Fil in the pertandingan names from C34 until C40
+                // Fill in the pertandingan names from C34 until C40
 
                 for (let j = 0; j < form1PertandinganNames.length; j++) {
                     let cellpt4_9 = worksheet.getCell(`C${34 + j}`);
@@ -423,33 +425,26 @@ function processExcelTemplate(data) {
                     cellpt4_10.value = '';
                 }
 
-                // Write the data to the copy
-
+                // Push the completed excel file to the `statementFiles` array
                 const buffer = await workbook.xlsx.writeBuffer();
                 statementFiles.push({ name: `1${homeroom}-${year}.xlsx`, content: buffer });
 
             }
-            // createZip(statementFiles, "form1");
-            // TODO: Figure out why the updated version of the files variable is not accessible outside of this function
+            
         }
         
-        writeDataToCopyForm1()
+        generateStatementsForm1()
 
-        async function writeDataToCopyForm2() {
+        async function generateStatementsForm2() {
             for (let i = 0; i < 15; i++) {
-                // Get the homeroom name
 
-                
+                // Get the homeroom name
                 let homeroom = meritData.form2.part1.data[i][1];
 
                 const worksheet = workbook.getWorksheet('Sheet1');
 
-                // Write the data to the copy
-
-                // Change the homeroom name
-
+                // Change the homeroom name in the template to the current homeroom name
                 const cell = worksheet.getCell('B8');
-
                 cell.value = `HOMEROOM 1${homeroom} ${year}`;
 
                 // Part 1
@@ -516,7 +511,6 @@ function processExcelTemplate(data) {
                 cellpt3_4.value = 0
 
                 // Part 4 (Cells D34, E34, D35, E35, D36, E36, D37, E37, D38, E38, D39, E39, D40, E40) depending on how many pertandingans there are
-
                 // Check number of pertandingans and only write to their respective cells, going down for each pertandingan
 
                 let cellpt4_1 = worksheet.getCell('D34');
@@ -569,7 +563,7 @@ function processExcelTemplate(data) {
 
                 let form2PertandinganNames = meritData.form2.part4.data[0];
 
-                // Fil in the pertandingan names from C34 until C40
+                // Fill in the pertandingan names from C34 until C40
 
                 for (let j = 0; j < form2PertandinganNames.length; j++) {
                     let cellpt4_9 = worksheet.getCell(`C${34 + j}`);
@@ -579,34 +573,26 @@ function processExcelTemplate(data) {
                     cellpt4_10.value = '';
                 }
 
-                // Write the data to the copy
-
+                // Push the completed excel file to the `statementFiles` array
                 const buffer = await workbook.xlsx.writeBuffer();
                 statementFiles.push({ name: `2${homeroom}-${year}.xlsx`, content: buffer });
-
-                // createZip(files);
                 
             }
-            // TODO: Figure out why the updated version of the files variable is not accessible outside of this function
+            
         }
         
-        writeDataToCopyForm2()
+        generateStatementsForm2()
 
-        async function writeDataToCopyForm3() {
+        async function generateStatementsForm3() {
             for (let i = 0; i < 15; i++) {
-                // Get the homeroom name
 
-                
+                // Get the homeroom name
                 let homeroom = meritData.form3.part1.data[i][1];
 
                 const worksheet = workbook.getWorksheet('Sheet1');
 
-                // Write the data to the copy
-
-                // Change the homeroom name
-
+                // Change the homeroom name in the template to the currrent one
                 const cell = worksheet.getCell('B8');
-
                 cell.value = `HOMEROOM 1${homeroom} ${year}`;
 
                 // Part 1
@@ -673,7 +659,6 @@ function processExcelTemplate(data) {
                 cellpt3_4.value = 0
 
                 // Part 4 (Cells D34, E34, D35, E35, D36, E36, D37, E37, D38, E38, D39, E39, D40, E40) depending on how many pertandingans there are
-
                 // Check number of pertandingans and only write to their respective cells, going down for each pertandingan
 
                 let cellpt4_1 = worksheet.getCell('D34');
@@ -726,7 +711,7 @@ function processExcelTemplate(data) {
 
                 let form3PertandinganNames = meritData.form3.part4.data[0];
 
-                // Fil in the pertandingan names from C34 until C40
+                // Fill in the pertandingan names from C34 until C40
 
                 for (let j = 0; j < form3PertandinganNames.length; j++) {
                     let cellpt4_9 = worksheet.getCell(`C${34 + j}`);
@@ -736,34 +721,26 @@ function processExcelTemplate(data) {
                     cellpt4_10.value = '';
                 }
 
-                // Write the data to the copy
-
+                // Push the generated excel files to the `statementFiles` array
                 const buffer = await workbook.xlsx.writeBuffer();
                 statementFiles.push({ name: `3${homeroom}-${year}.xlsx`, content: buffer });
-
-                // createZip(files);
                 
             }
-            // TODO: Figure out why the updated version of the files variable is not accessible outside of this function
+            
         }
         
-        writeDataToCopyForm3()
+        generateStatementsForm3()
 
-        async function writeDataToCopyForm4() {
+        async function generateStatementsForm4() {
             for (let i = 0; i < 15; i++) {
-                // Get the homeroom name
-
                 
+                // Get the homeroom name
                 let homeroom = meritData.form4.part1.data[i][1];
 
                 const worksheet = workbook.getWorksheet('Sheet1');
 
-                // Write the data to the copy
-
-                // Change the homeroom name
-
+                // Change the homeroom name in the template to the current homeroom
                 const cell = worksheet.getCell('B8');
-
                 cell.value = `HOMEROOM 1${homeroom} ${year}`;
 
                 // Part 1
@@ -830,7 +807,6 @@ function processExcelTemplate(data) {
                 cellpt3_4.value = 0
 
                 // Part 4 (Cells D34, E34, D35, E35, D36, E36, D37, E37, D38, E38, D39, E39, D40, E40) depending on how many pertandingans there are
-
                 // Check number of pertandingans and only write to their respective cells, going down for each pertandingan
 
                 let cellpt4_1 = worksheet.getCell('D34');
@@ -883,8 +859,7 @@ function processExcelTemplate(data) {
 
                 let form4PertandinganNames = meritData.form4.part4.data[0];
 
-                // Fil in the pertandingan names from C34 until C40
-
+                // Fill in the pertandingan names from C34 until C40
                 for (let j = 0; j < form4PertandinganNames.length; j++) {
                     let cellpt4_9 = worksheet.getCell(`C${34 + j}`);
                     cellpt4_9.value = form4PertandinganNames[j];
@@ -893,34 +868,26 @@ function processExcelTemplate(data) {
                     cellpt4_10.value = '';
                 }
 
-                // Write the data to the copy
-
+                // Push the generated excel file to the `statementFiles` array
                 const buffer = await workbook.xlsx.writeBuffer();
                 statementFiles.push({ name: `4${homeroom}-${year}.xlsx`, content: buffer });
-
-                // createZip(files);
                 
             }
-            // TODO: Figure out why the updated version of the files variable is not accessible outside of this function
+            
         }
         
-        writeDataToCopyForm4()
+        generateStatementsForm4()
 
-        async function writeDataToCopyForm5() {
+        async function generateStatementsForm5() {
             for (let i = 0; i < 15; i++) {
-                // Get the homeroom name
-
                 
+                // Get the homeroom name
                 let homeroom = meritData.form5.part1.data[i][1];
 
                 const worksheet = workbook.getWorksheet('Sheet1');
 
-                // Write the data to the copy
-
                 // Change the homeroom name
-
                 const cell = worksheet.getCell('B8');
-
                 cell.value = `HOMEROOM 1${homeroom} ${year}`;
 
                 // Part 1
@@ -987,7 +954,6 @@ function processExcelTemplate(data) {
                 cellpt3_4.value = 0
 
                 // Part 4 (Cells D34, E34, D35, E35, D36, E36, D37, E37, D38, E38, D39, E39, D40, E40) depending on how many pertandingans there are
-
                 // Check number of pertandingans and only write to their respective cells, going down for each pertandingan
 
                 let cellpt4_1 = worksheet.getCell('D34');
@@ -1040,8 +1006,7 @@ function processExcelTemplate(data) {
 
                 let form5PertandinganNames = meritData.form5.part4.data[0];
 
-                // Fil in the pertandingan names from C34 until C40
-
+                // Fill in the pertandingan names from C34 until C40
                 for (let j = 0; j < form5PertandinganNames.length; j++) {
                     let cellpt4_9 = worksheet.getCell(`C${34 + j}`);
                     cellpt4_9.value = form5PertandinganNames[j];
@@ -1050,18 +1015,15 @@ function processExcelTemplate(data) {
                     cellpt4_10.value = '';
                 }
 
-                // Write the data to the copy
-
+                // Write the data to the copyh
                 const buffer = await workbook.xlsx.writeBuffer();
                 statementFiles.push({ name: `5${homeroom}-${year}.xlsx`, content: buffer });
-
-                // createZip(files);
                 
             }
-            // TODO: Figure out why the updated version of the files variable is not accessible outside of this function
+            
         }
         
-        writeDataToCopyForm5()
+        generateStatementsForm5()
 
     });
 
@@ -1070,21 +1032,19 @@ function processExcelTemplate(data) {
 const downloadButton = document.getElementById('download')
 downloadButton.addEventListener('click', generateAndDownloadZip);
 
-
-async function createZip(files, form) {
+async function createZip(files) {
     const zip = new JSZip();
 
     files.forEach(file => {
         zip.file(file.name, file.content);
     });
 
-
+    // TODO: In the final zip file, segregate every form into their own folders
 
     const content = await zip.generateAsync({ type: 'blob' });
     saveAs(content, `penyata-merit-demerit-HR-${year}.zip`);
 }
 
 async function generateAndDownloadZip() {
-    // const files = await processExcelTemplate();
     await createZip(statementFiles);
 }
