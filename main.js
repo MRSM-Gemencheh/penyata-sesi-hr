@@ -319,8 +319,12 @@ function processExcelTemplate(data) {
                 let cellpt1_6 = worksheet.getCell('E18');
                 cellpt1_6.value = meritData.form1.part1.data[i][8] || 0;
 
-                let cellpt1_8 = worksheet.getCell('D19')
+                let cellpt1_7 = worksheet.getCell('D19')
+                cellpt1_7.value = meritData.form1.part1.data[i][9] || 0;
+
+                let cellpt1_8 = worksheet.getCell('E19')
                 cellpt1_8.value = meritData.form1.part1.data[i][10] || 0;
+                
 
                 // Part 2 (Cells D22, E22, D23, E23, D24, E24, D25, E25)
 
@@ -413,6 +417,30 @@ function processExcelTemplate(data) {
                 let cellpt4_16 = worksheet.getCell('E41');
                 cellpt4_16.value = meritData.form1.part4.data[i + 1][15] || 0;
 
+                let cellpt4_17 = worksheet.getCell('D42');
+                cellpt4_17.value = meritData.form1.part4.data[i + 1][16] || 0;
+
+                let cellpt4_18 = worksheet.getCell('E42');
+                cellpt4_18.value = meritData.form1.part4.data[i + 1][17] || 0;
+
+                let cellpt4_19 = worksheet.getCell('D43');
+                cellpt4_19.value = meritData.form1.part4.data[i + 1][18] || 0;
+
+                let cellpt4_20 = worksheet.getCell('E43');
+                cellpt4_20.value = meritData.form1.part4.data[i + 1][19] || 0;
+
+                let cellpt4_21 = worksheet.getCell('D44');
+                cellpt4_21.value = meritData.form1.part4.data[i + 1][20] || 0;
+
+                let cellpt4_22 = worksheet.getCell('E44');
+                cellpt4_22.value = meritData.form1.part4.data[i + 1][21] || 0;
+
+                let cellpt4_23 = worksheet.getCell('D45');
+                cellpt4_23.value = meritData.form1.part4.data[i + 1][22] || 0;
+
+                let cellpt4_24 = worksheet.getCell('E45');
+                cellpt4_24.value = meritData.form1.part4.data[i + 1][23] || 0;
+
                 let form1PertandinganNames = meritData.form1.part4.data[0];
 
                 // Fill in the pertandingan names from C34 until C40
@@ -445,7 +473,7 @@ function processExcelTemplate(data) {
 
                 // Change the homeroom name in the template to the current homeroom name
                 const cell = worksheet.getCell('B8');
-                cell.value = `HOMEROOM 1${homeroom} ${year}`;
+                cell.value = `HOMEROOM 2${homeroom} ${year}`;
 
                 // Part 1
 
@@ -467,7 +495,10 @@ function processExcelTemplate(data) {
                 let cellpt1_6 = worksheet.getCell('E18');
                 cellpt1_6.value = meritData.form2.part1.data[i][8] || 0;
 
-                let cellpt1_8 = worksheet.getCell('D19')
+                let cellpt1_7 = worksheet.getCell('D19')
+                cellpt1_7.value = meritData.form2.part1.data[i][9] || 0;
+
+                let cellpt1_8 = worksheet.getCell('E19')
                 cellpt1_8.value = meritData.form2.part1.data[i][10] || 0;
 
                 // Part 2 (Cells D22, E22, D23, E23, D24, E24, D25, E25)
@@ -561,6 +592,30 @@ function processExcelTemplate(data) {
                 let cellpt4_16 = worksheet.getCell('E41');
                 cellpt4_16.value = meritData.form2.part4.data[i + 1][15] || 0;
 
+                let cellpt4_17 = worksheet.getCell('D42');
+                cellpt4_17.value = meritData.form2.part4.data[i + 1][16] || 0;
+
+                let cellpt4_18 = worksheet.getCell('E42');
+                cellpt4_18.value = meritData.form2.part4.data[i + 1][17] || 0;
+
+                let cellpt4_19 = worksheet.getCell('D43');
+                cellpt4_19.value = meritData.form2.part4.data[i + 1][18] || 0;
+
+                let cellpt4_20 = worksheet.getCell('E43');
+                cellpt4_20.value = meritData.form2.part4.data[i + 1][19] || 0;
+
+                let cellpt4_21 = worksheet.getCell('D44');
+                cellpt4_21.value = meritData.form2.part4.data[i + 1][20] || 0;
+
+                let cellpt4_22 = worksheet.getCell('E44');
+                cellpt4_22.value = meritData.form2.part4.data[i + 1][21] || 0;
+
+                let cellpt4_23 = worksheet.getCell('D45');
+                cellpt4_23.value = meritData.form2.part4.data[i + 1][22] || 0;
+
+                let cellpt4_24 = worksheet.getCell('E45');
+                cellpt4_24.value = meritData.form2.part4.data[i + 1][23] || 0;
+
                 let form2PertandinganNames = meritData.form2.part4.data[0];
 
                 // Fill in the pertandingan names from C34 until C40
@@ -593,7 +648,7 @@ function processExcelTemplate(data) {
 
                 // Change the homeroom name in the template to the currrent one
                 const cell = worksheet.getCell('B8');
-                cell.value = `HOMEROOM 1${homeroom} ${year}`;
+                cell.value = `HOMEROOM 3${homeroom} ${year}`;
 
                 // Part 1
 
@@ -615,7 +670,10 @@ function processExcelTemplate(data) {
                 let cellpt1_6 = worksheet.getCell('E18');
                 cellpt1_6.value = meritData.form3.part1.data[i][8] || 0;
 
-                let cellpt1_8 = worksheet.getCell('D19')
+                let cellpt1_7 = worksheet.getCell('D19')
+                cellpt1_7.value = meritData.form3.part1.data[i][9] || 0;
+
+                let cellpt1_8 = worksheet.getCell('E19')
                 cellpt1_8.value = meritData.form3.part1.data[i][10] || 0;
 
                 // Part 2 (Cells D22, E22, D23, E23, D24, E24, D25, E25)
@@ -709,6 +767,30 @@ function processExcelTemplate(data) {
                 let cellpt4_16 = worksheet.getCell('E41');
                 cellpt4_16.value = meritData.form3.part4.data[i + 1][15] || 0;
 
+                let cellpt4_17 = worksheet.getCell('D42');
+                cellpt4_17.value = meritData.form3.part4.data[i + 1][16] || 0;
+
+                let cellpt4_18 = worksheet.getCell('E42');
+                cellpt4_18.value = meritData.form3.part4.data[i + 1][17] || 0;
+
+                let cellpt4_19 = worksheet.getCell('D43');
+                cellpt4_19.value = meritData.form3.part4.data[i + 1][18] || 0;
+
+                let cellpt4_20 = worksheet.getCell('E43');
+                cellpt4_20.value = meritData.form3.part4.data[i + 1][19] || 0;
+
+                let cellpt4_21 = worksheet.getCell('D44');
+                cellpt4_21.value = meritData.form3.part4.data[i + 1][20] || 0;
+
+                let cellpt4_22 = worksheet.getCell('E44');
+                cellpt4_22.value = meritData.form3.part4.data[i + 1][21] || 0;
+
+                let cellpt4_23 = worksheet.getCell('D45');
+                cellpt4_23.value = meritData.form3.part4.data[i + 1][22] || 0;
+
+                let cellpt4_24 = worksheet.getCell('E45');
+                cellpt4_24.value = meritData.form3.part4.data[i + 1][23] || 0;
+
                 let form3PertandinganNames = meritData.form3.part4.data[0];
 
                 // Fill in the pertandingan names from C34 until C40
@@ -741,7 +823,7 @@ function processExcelTemplate(data) {
 
                 // Change the homeroom name in the template to the current homeroom
                 const cell = worksheet.getCell('B8');
-                cell.value = `HOMEROOM 1${homeroom} ${year}`;
+                cell.value = `HOMEROOM 4${homeroom} ${year}`;
 
                 // Part 1
 
@@ -763,7 +845,10 @@ function processExcelTemplate(data) {
                 let cellpt1_6 = worksheet.getCell('E18');
                 cellpt1_6.value = meritData.form4.part1.data[i][8] || 0;
 
-                let cellpt1_8 = worksheet.getCell('D19')
+                let cellpt1_7 = worksheet.getCell('D19')
+                cellpt1_7.value = meritData.form4.part1.data[i][9] || 0;
+
+                let cellpt1_8 = worksheet.getCell('E19')
                 cellpt1_8.value = meritData.form4.part1.data[i][10] || 0;
 
                 // Part 2 (Cells D22, E22, D23, E23, D24, E24, D25, E25)
@@ -857,6 +942,30 @@ function processExcelTemplate(data) {
                 let cellpt4_16 = worksheet.getCell('E41');
                 cellpt4_16.value = meritData.form4.part4.data[i + 1][15] || 0;
 
+                let cellpt4_17 = worksheet.getCell('D42');
+                cellpt4_17.value = meritData.form4.part4.data[i + 1][16] || 0;
+
+                let cellpt4_18 = worksheet.getCell('E42');
+                cellpt4_18.value = meritData.form4.part4.data[i + 1][17] || 0;
+
+                let cellpt4_19 = worksheet.getCell('D43');
+                cellpt4_19.value = meritData.form4.part4.data[i + 1][18] || 0;
+
+                let cellpt4_20 = worksheet.getCell('E43');
+                cellpt4_20.value = meritData.form4.part4.data[i + 1][19] || 0;
+
+                let cellpt4_21 = worksheet.getCell('D44');
+                cellpt4_21.value = meritData.form4.part4.data[i + 1][20] || 0;
+
+                let cellpt4_22 = worksheet.getCell('E44');
+                cellpt4_22.value = meritData.form4.part4.data[i + 1][21] || 0;
+
+                let cellpt4_23 = worksheet.getCell('D45');
+                cellpt4_23.value = meritData.form4.part4.data[i + 1][22] || 0;
+
+                let cellpt4_24 = worksheet.getCell('E45');
+                cellpt4_24.value = meritData.form4.part4.data[i + 1][23] || 0;
+
                 let form4PertandinganNames = meritData.form4.part4.data[0];
 
                 // Fill in the pertandingan names from C34 until C40
@@ -888,7 +997,7 @@ function processExcelTemplate(data) {
 
                 // Change the homeroom name
                 const cell = worksheet.getCell('B8');
-                cell.value = `HOMEROOM 1${homeroom} ${year}`;
+                cell.value = `HOMEROOM 5${homeroom} ${year}`;
 
                 // Part 1
 
@@ -910,7 +1019,10 @@ function processExcelTemplate(data) {
                 let cellpt1_6 = worksheet.getCell('E18');
                 cellpt1_6.value = meritData.form5.part1.data[i][8] || 0;
 
-                let cellpt1_8 = worksheet.getCell('D19')
+                let cellpt1_7 = worksheet.getCell('D19')
+                cellpt1_7.value = meritData.form5.part1.data[i][9] || 0;
+
+                let cellpt1_8 = worksheet.getCell('E19')
                 cellpt1_8.value = meritData.form5.part1.data[i][10] || 0;
 
                 // Part 2 (Cells D22, E22, D23, E23, D24, E24, D25, E25)
@@ -1004,18 +1116,42 @@ function processExcelTemplate(data) {
                 let cellpt4_16 = worksheet.getCell('E41');
                 cellpt4_16.value = meritData.form5.part4.data[i + 1][15] || 0;
 
+                let cellpt4_17 = worksheet.getCell('D42');
+                cellpt4_17.value = meritData.form5.part4.data[i + 1][16] || 0;
+
+                let cellpt4_18 = worksheet.getCell('E42');
+                cellpt4_18.value = meritData.form5.part4.data[i + 1][17] || 0;
+
+                let cellpt4_19 = worksheet.getCell('D43');
+                cellpt4_19.value = meritData.form5.part4.data[i + 1][18] || 0;
+
+                let cellpt4_20 = worksheet.getCell('E43');
+                cellpt4_20.value = meritData.form5.part4.data[i + 1][19] || 0;
+
+                let cellpt4_21 = worksheet.getCell('D44');
+                cellpt4_21.value = meritData.form5.part4.data[i + 1][20] || 0;
+
+                let cellpt4_22 = worksheet.getCell('E44');
+                cellpt4_22.value = meritData.form5.part4.data[i + 1][21] || 0;
+
+                let cellpt4_23 = worksheet.getCell('D45');
+                cellpt4_23.value = meritData.form5.part4.data[i + 1][22] || 0;
+
+                let cellpt4_24 = worksheet.getCell('E45');
+                cellpt4_24.value = meritData.form5.part4.data[i + 1][23] || 0;
+
                 let form5PertandinganNames = meritData.form5.part4.data[0];
 
-                // Fill in the pertandingan names from C34 until C40
+                // Fill in the pertandingan names from C34 until C45
                 for (let j = 0; j < form5PertandinganNames.length; j++) {
                     let cellpt4_9 = worksheet.getCell(`C${34 + j}`);
                     cellpt4_9.value = form5PertandinganNames[j];
 
-                    let cellpt4_10 = worksheet.getCell('C41');
+                    let cellpt4_10 = worksheet.getCell('C45');
                     cellpt4_10.value = '';
                 }
 
-                // Write the data to the copyh
+                // Write the data to the copy
                 const buffer = await workbook.xlsx.writeBuffer();
                 statementFiles.push({ name: `5${homeroom}-${year}.xlsx`, content: buffer });
                 
