@@ -105,16 +105,16 @@ async function writeDataToCopyForm1() {
         // Part 3 (Cells E28, E29, E30, E31, )
 
         cellpt3_1 = worksheet.getCell('E28');
-        cellpt3_1.value = data.form1.part3.data[i][0] + data.form1.part3.data[i][1] + data.form1.part3.data[i][2] || 0;
+        cellpt3_1.value = data.form1.part3.data[i][0] + data.form1.part3.data[i][1] + data.form1.part3.data[i][2];
 
         cellpt3_2 = worksheet.getCell('E29');
-        cellpt3_2.value = data.form1.part3.data[i][3] + data.form1.part3.data[i][4] + data.form1.part3.data[i][5] || 0;
+        cellpt3_2.value = data.form1.part3.data[i][3] + data.form1.part3.data[i][4] + data.form1.part3.data[i][5];
 
         cellpt3_3 = worksheet.getCell('E30');
-        cellpt3_3.value = data.form1.part3.data[i][6] + data.form1.part3.data[i][7] + data.form1.part3.data[i][8] || 0;
+        cellpt3_3.value = data.form1.part3.data[i][6] + data.form1.part3.data[i][7] + data.form1.part3.data[i][8];
 
         cellpt3_4 = worksheet.getCell('E31');
-        cellpt3_4.value = data.form1.part3.data[i][9] + data.form1.part3.data[i][10] + data.form1.part3.data[i][11] || 0
+        cellpt3_4.value = data.form1.part3.data[i][9] + data.form1.part3.data[i][10] + data.form1.part3.data[i][11];
 
         // Part 4 (Cells D34, E34, D35, E35, D36, E36, D37, E37, D38, E38, D39, E39, D40, E40) depending on how many pertandingans there are
 
@@ -311,16 +311,16 @@ async function writeDataToCopyForm2() {
         // Part 3 (Cells E28, E29, E30, E31, )
 
         cellpt3_1 = worksheet.getCell('E28');
-        cellpt3_1.value = data.form2.part3.data[i][0] + data.form2.part3.data[i][1] + data.form2.part3.data[i][2] || 0;
+        cellpt3_1.value = data.form2.part3.data[i][0] + data.form2.part3.data[i][1] + data.form2.part3.data[i][2];
 
         cellpt3_2 = worksheet.getCell('E29');
-        cellpt3_2.value = data.form2.part3.data[i][3] + data.form2.part3.data[i][4] + data.form2.part3.data[i][5] || 0;
+        cellpt3_2.value = data.form2.part3.data[i][3] + data.form2.part3.data[i][4] + data.form2.part3.data[i][5];
 
         cellpt3_3 = worksheet.getCell('E30');
-        cellpt3_3.value = data.form2.part3.data[i][6] + data.form2.part3.data[i][7] + data.form2.part3.data[i][8] || 0;
+        cellpt3_3.value = data.form2.part3.data[i][6] + data.form2.part3.data[i][7] + data.form2.part3.data[i][8];
 
         cellpt3_4 = worksheet.getCell('E31');
-        cellpt3_4.value = data.form2.part3.data[i][9] + data.form2.part3.data[i][10] + data.form2.part3.data[i][11] || 0
+        cellpt3_4.value = data.form2.part3.data[i][9] + data.form2.part3.data[i][10] + data.form2.part3.data[i][11];
 
         // Part 4 (Cells D34, E34, D35, E35, D36, E36, D37, E37, D38, E38, D39, E39, D40, E40) depending on how many pertandingans there are
 
@@ -518,16 +518,16 @@ async function writeDataToCopyForm3() {
         // Part 3 (Cells E28, E29, E30, E31, )
 
         cellpt3_1 = worksheet.getCell('E28');
-        cellpt3_1.value = data.form3.part3.data[i][0] + data.form3.part3.data[i][1] + data.form3.part3.data[i][2] || 0;
+        cellpt3_1.value = data.form3.part3.data[i][0] + data.form3.part3.data[i][1] + data.form3.part3.data[i][2];
 
         cellpt3_2 = worksheet.getCell('E29');
-        cellpt3_2.value = data.form3.part3.data[i][3] + data.form3.part3.data[i][4] + data.form3.part3.data[i][5] || 0;
+        cellpt3_2.value = data.form3.part3.data[i][3] + data.form3.part3.data[i][4] + data.form3.part3.data[i][5];
 
         cellpt3_3 = worksheet.getCell('E30');
-        cellpt3_3.value = data.form3.part3.data[i][6] + data.form3.part3.data[i][7] + data.form3.part3.data[i][8] || 0;
+        cellpt3_3.value = data.form3.part3.data[i][6] + data.form3.part3.data[i][7] + data.form3.part3.data[i][8];
 
         cellpt3_4 = worksheet.getCell('E31');
-        cellpt3_4.value = data.form3.part3.data[i][9] + data.form3.part3.data[i][10] + data.form3.part3.data[i][11] || 0
+        cellpt3_4.value = data.form3.part3.data[i][9] + data.form3.part3.data[i][10] + data.form3.part3.data[i][11];
 
         // Part 4 (Cells D34, E34, D35, E35, D36, E36, D37, E37, D38, E38, D39, E39, D40, E40) depending on how many pertandingans there are
 
@@ -722,16 +722,16 @@ async function writeDataToCopyForm4() {
         // Part 3 (Cells E28, E29, E30, E31, )
 
         cellpt3_1 = worksheet.getCell('E28');
-        cellpt3_1.value = data.form4.part3.data[i][0] + data.form4.part3.data[i][1] + data.form4.part3.data[i][2] || 0;
+        cellpt3_1.value = data.form4.part3.data[i][0] + data.form4.part3.data[i][1] + data.form4.part3.data[i][2];
 
         cellpt3_2 = worksheet.getCell('E29');
-        cellpt3_2.value = data.form4.part3.data[i][3] + data.form4.part3.data[i][4] + data.form4.part3.data[i][5] || 0;
+        cellpt3_2.value = data.form4.part3.data[i][3] + data.form4.part3.data[i][4] + data.form4.part3.data[i][5];
 
         cellpt3_3 = worksheet.getCell('E30');
-        cellpt3_3.value = data.form4.part3.data[i][6] + data.form4.part3.data[i][7] + data.form4.part3.data[i][8] || 0;
+        cellpt3_3.value = data.form4.part3.data[i][6] + data.form4.part3.data[i][7] + data.form4.part3.data[i][8];
 
         cellpt3_4 = worksheet.getCell('E31');
-        cellpt3_4.value = data.form4.part3.data[i][9] + data.form4.part3.data[i][10] + data.form4.part3.data[i][11] || 0
+        cellpt3_4.value = data.form4.part3.data[i][9] + data.form4.part3.data[i][10] + data.form4.part3.data[i][11];
 
         // Part 4 (Cells D34, E34, D35, E35, D36, E36, D37, E37, D38, E38, D39, E39, D40, E40) depending on how many pertandingans there are
 
@@ -927,16 +927,16 @@ async function writeDataToCopyForm5() {
         // Part 3 (Cells E28, E29, E30, E31, )
 
         cellpt3_1 = worksheet.getCell('E28');
-        cellpt3_1.value = data.form5.part3.data[i][0] + data.form5.part3.data[i][1] + data.form5.part3.data[i][2] || 0;
+        cellpt3_1.value = data.form5.part3.data[i][0] + data.form5.part3.data[i][1] + data.form5.part3.data[i][2];
 
         cellpt3_2 = worksheet.getCell('E29');
-        cellpt3_2.value = data.form5.part3.data[i][3] + data.form5.part3.data[i][4] + data.form5.part3.data[i][5] || 0;
+        cellpt3_2.value = data.form5.part3.data[i][3] + data.form5.part3.data[i][4] + data.form5.part3.data[i][5];
 
         cellpt3_3 = worksheet.getCell('E30');
-        cellpt3_3.value = data.form5.part3.data[i][6] + data.form5.part3.data[i][7] + data.form5.part3.data[i][8] || 0;
+        cellpt3_3.value = data.form5.part3.data[i][6] + data.form5.part3.data[i][7] + data.form5.part3.data[i][8];
 
         cellpt3_4 = worksheet.getCell('E31');
-        cellpt3_4.value = data.form5.part3.data[i][9] + data.form5.part3.data[i][10] + data.form5.part3.data[i][11] || 0
+        cellpt3_4.value = data.form5.part3.data[i][9] + data.form5.part3.data[i][10] + data.form5.part3.data[i][11];
 
         // Part 4 (Cells D34, E34, D35, E35, D36, E36, D37, E37, D38, E38, D39, E39, D40, E40) depending on how many pertandingans there are
 

@@ -80,11 +80,11 @@ async function readDataFromFile() {
     form5Part3Data = []
 
     for (let i = 61; i <= 78; i++) {
-        form1Part3Data.push(form1Worksheet.getRow(i).values.slice(3, 14))
-        form2Part3Data.push(form2Worksheet.getRow(i).values.slice(3, 14))
-        form3Part3Data.push(form3Worksheet.getRow(i).values.slice(3, 14))
-        form4Part3Data.push(form4Worksheet.getRow(i).values.slice(3, 14))
-        form5Part3Data.push(form5Worksheet.getRow(i).values.slice(3, 14))
+        form1Part3Data.push(form1Worksheet.getRow(i).values.slice(3, 15))
+        form2Part3Data.push(form2Worksheet.getRow(i).values.slice(3, 15))
+        form3Part3Data.push(form3Worksheet.getRow(i).values.slice(3, 15))
+        form4Part3Data.push(form4Worksheet.getRow(i).values.slice(3, 15))
+        form5Part3Data.push(form5Worksheet.getRow(i).values.slice(3, 15))
     }
 
     // Part 4
