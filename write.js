@@ -158,15 +158,46 @@ async function writeDataToCopyForm1() {
 
         cellpt4_13 = worksheet.getCell('D40');
         cellpt4_13.value = data.form1.part4.data[i + 1][12] || 0;
-
+        
         cellpt4_14 = worksheet.getCell('E40');
         cellpt4_14.value = data.form1.part4.data[i + 1][13] || 0;
-
+        
         cellpt4_15 = worksheet.getCell('D41');
         cellpt4_15.value = data.form1.part4.data[i + 1][14] || 0;
-
+        
         cellpt4_16 = worksheet.getCell('E41');
         cellpt4_16.value = data.form1.part4.data[i + 1][15] || 0;
+        
+        cellpt4_17 = worksheet.getCell('D42');
+        cellpt4_17.value = data.form1.part4.data[i + 1][16] || 0;
+        
+        cellpt4_18 = worksheet.getCell('E42');
+        cellpt4_18.value = data.form1.part4.data[i + 1][17] || 0;
+        
+        cellpt4_19 = worksheet.getCell('D43');
+        cellpt4_19.value = data.form1.part4.data[i + 1][18] || 0;
+        
+        cellpt4_20 = worksheet.getCell('E43');
+        cellpt4_20.value = data.form1.part4.data[i + 1][19] || 0;
+        
+        cellpt4_21 = worksheet.getCell('D44');
+        cellpt4_21.value = data.form1.part4.data[i + 1][20] || 0;
+        
+        cellpt4_22 = worksheet.getCell('E44');
+        cellpt4_22.value = data.form1.part4.data[i + 1][21] || 0;
+        
+        cellpt4_23 = worksheet.getCell('D45');
+        cellpt4_23.value = data.form1.part4.data[i + 1][22] || 0;
+        
+        cellpt4_24 = worksheet.getCell('E45');
+        cellpt4_24.value = data.form1.part4.data[i + 1][23] || 0;
+        
+        cellpt4_25 = worksheet.getCell('D46');
+        cellpt4_25.value = data.form1.part4.data[i + 1][24] || 0;
+        
+        cellpt4_26 = worksheet.getCell('E46');
+        cellpt4_26.value = data.form1.part4.data[i + 1][25] || 0;
+        
 
         form1PertandinganNames = data.form1.part4.data[0];
 
@@ -175,9 +206,6 @@ async function writeDataToCopyForm1() {
         for (let j = 0; j < form1PertandinganNames.length; j++) {
             cellpt4_9 = worksheet.getCell(`C${34 + j}`);
             cellpt4_9.value = form1PertandinganNames[j];
-
-            cellpt4_10 = worksheet.getCell('C41');
-            cellpt4_10.value = '';
         }
 
         // Write the data to the copy
@@ -336,15 +364,45 @@ async function writeDataToCopyForm2() {
 
         cellpt4_13 = worksheet.getCell('D40');
         cellpt4_13.value = data.form2.part4.data[i + 1][12] || 0;
-
+        
         cellpt4_14 = worksheet.getCell('E40');
         cellpt4_14.value = data.form2.part4.data[i + 1][13] || 0;
-
+        
         cellpt4_15 = worksheet.getCell('D41');
         cellpt4_15.value = data.form2.part4.data[i + 1][14] || 0;
-
+        
         cellpt4_16 = worksheet.getCell('E41');
         cellpt4_16.value = data.form2.part4.data[i + 1][15] || 0;
+        
+        cellpt4_17 = worksheet.getCell('D42');
+        cellpt4_17.value = data.form2.part4.data[i + 1][16] || 0;
+        
+        cellpt4_18 = worksheet.getCell('E42');
+        cellpt4_18.value = data.form2.part4.data[i + 1][17] || 0;
+        
+        cellpt4_19 = worksheet.getCell('D43');
+        cellpt4_19.value = data.form2.part4.data[i + 1][18] || 0;
+        
+        cellpt4_20 = worksheet.getCell('E43');
+        cellpt4_20.value = data.form2.part4.data[i + 1][19] || 0;
+        
+        cellpt4_21 = worksheet.getCell('D44');
+        cellpt4_21.value = data.form2.part4.data[i + 1][20] || 0;
+        
+        cellpt4_22 = worksheet.getCell('E44');
+        cellpt4_22.value = data.form2.part4.data[i + 1][21] || 0;
+        
+        cellpt4_23 = worksheet.getCell('D45');
+        cellpt4_23.value = data.form2.part4.data[i + 1][22] || 0;
+        
+        cellpt4_24 = worksheet.getCell('E45');
+        cellpt4_24.value = data.form2.part4.data[i + 1][23] || 0;
+        
+        cellpt4_25 = worksheet.getCell('D46');
+        cellpt4_25.value = data.form2.part4.data[i + 1][24] || 0;
+        
+        cellpt4_26 = worksheet.getCell('E46');
+        cellpt4_26.value = data.form2.part4.data[i + 1][25] || 0;
 
         form2PertandinganNames = data.form2.part4.data[0];
 
@@ -353,9 +411,6 @@ async function writeDataToCopyForm2() {
         for (let j = 0; j < form2PertandinganNames.length; j++) {
             cellpt4_9 = worksheet.getCell(`C${34 + j}`);
             cellpt4_9.value = form2PertandinganNames[j];
-
-            cellpt4_10 = worksheet.getCell('C41');
-            cellpt4_10.value = '';
         }
 
         // Write the data to the copy
@@ -516,15 +571,45 @@ async function writeDataToCopyForm3() {
 
         cellpt4_13 = worksheet.getCell('D40');
         cellpt4_13.value = data.form3.part4.data[i + 1][12] || 0;
-
+        
         cellpt4_14 = worksheet.getCell('E40');
         cellpt4_14.value = data.form3.part4.data[i + 1][13] || 0;
-
+        
         cellpt4_15 = worksheet.getCell('D41');
         cellpt4_15.value = data.form3.part4.data[i + 1][14] || 0;
-
+        
         cellpt4_16 = worksheet.getCell('E41');
         cellpt4_16.value = data.form3.part4.data[i + 1][15] || 0;
+        
+        cellpt4_17 = worksheet.getCell('D42');
+        cellpt4_17.value = data.form3.part4.data[i + 1][16] || 0;
+        
+        cellpt4_18 = worksheet.getCell('E42');
+        cellpt4_18.value = data.form3.part4.data[i + 1][17] || 0;
+        
+        cellpt4_19 = worksheet.getCell('D43');
+        cellpt4_19.value = data.form3.part4.data[i + 1][18] || 0;
+        
+        cellpt4_20 = worksheet.getCell('E43');
+        cellpt4_20.value = data.form3.part4.data[i + 1][19] || 0;
+        
+        cellpt4_21 = worksheet.getCell('D44');
+        cellpt4_21.value = data.form3.part4.data[i + 1][20] || 0;
+        
+        cellpt4_22 = worksheet.getCell('E44');
+        cellpt4_22.value = data.form3.part4.data[i + 1][21] || 0;
+        
+        cellpt4_23 = worksheet.getCell('D45');
+        cellpt4_23.value = data.form3.part4.data[i + 1][22] || 0;
+        
+        cellpt4_24 = worksheet.getCell('E45');
+        cellpt4_24.value = data.form3.part4.data[i + 1][23] || 0;
+        
+        cellpt4_25 = worksheet.getCell('D46');
+        cellpt4_25.value = data.form3.part4.data[i + 1][24] || 0;
+        
+        cellpt4_26 = worksheet.getCell('E46');
+        cellpt4_26.value = data.form3.part4.data[i + 1][25] || 0;
 
         form3PertandinganNames = data.form3.part4.data[0];
 
@@ -533,9 +618,6 @@ async function writeDataToCopyForm3() {
         for (let j = 0; j < form3PertandinganNames.length; j++) {
             cellpt4_9 = worksheet.getCell(`C${34 + j}`);
             cellpt4_9.value = form3PertandinganNames[j];
-
-            cellpt4_10 = worksheet.getCell('C41');
-            cellpt4_10.value = '';
         }
 
         // Write the data to the copy
@@ -693,15 +775,45 @@ async function writeDataToCopyForm4() {
 
         cellpt4_13 = worksheet.getCell('D40');
         cellpt4_13.value = data.form4.part4.data[i + 1][12] || 0;
-
+        
         cellpt4_14 = worksheet.getCell('E40');
         cellpt4_14.value = data.form4.part4.data[i + 1][13] || 0;
-
+        
         cellpt4_15 = worksheet.getCell('D41');
         cellpt4_15.value = data.form4.part4.data[i + 1][14] || 0;
-
+        
         cellpt4_16 = worksheet.getCell('E41');
         cellpt4_16.value = data.form4.part4.data[i + 1][15] || 0;
+        
+        cellpt4_17 = worksheet.getCell('D42');
+        cellpt4_17.value = data.form4.part4.data[i + 1][16] || 0;
+        
+        cellpt4_18 = worksheet.getCell('E42');
+        cellpt4_18.value = data.form4.part4.data[i + 1][17] || 0;
+        
+        cellpt4_19 = worksheet.getCell('D43');
+        cellpt4_19.value = data.form4.part4.data[i + 1][18] || 0;
+        
+        cellpt4_20 = worksheet.getCell('E43');
+        cellpt4_20.value = data.form4.part4.data[i + 1][19] || 0;
+        
+        cellpt4_21 = worksheet.getCell('D44');
+        cellpt4_21.value = data.form4.part4.data[i + 1][20] || 0;
+        
+        cellpt4_22 = worksheet.getCell('E44');
+        cellpt4_22.value = data.form4.part4.data[i + 1][21] || 0;
+        
+        cellpt4_23 = worksheet.getCell('D45');
+        cellpt4_23.value = data.form4.part4.data[i + 1][22] || 0;
+        
+        cellpt4_24 = worksheet.getCell('E45');
+        cellpt4_24.value = data.form4.part4.data[i + 1][23] || 0;
+        
+        cellpt4_25 = worksheet.getCell('D46');
+        cellpt4_25.value = data.form4.part4.data[i + 1][24] || 0;
+        
+        cellpt4_26 = worksheet.getCell('E46');
+        cellpt4_26.value = data.form4.part4.data[i + 1][25] || 0;
 
         form4PertandinganNames = data.form4.part4.data[0];
 
@@ -710,9 +822,6 @@ async function writeDataToCopyForm4() {
         for (let j = 0; j < form4PertandinganNames.length; j++) {
             cellpt4_9 = worksheet.getCell(`C${34 + j}`);
             cellpt4_9.value = form4PertandinganNames[j];
-
-            cellpt4_10 = worksheet.getCell('C41');
-            cellpt4_10.value = '';
         }
 
         // Write the data to the copy
@@ -871,15 +980,45 @@ async function writeDataToCopyForm5() {
 
         cellpt4_13 = worksheet.getCell('D40');
         cellpt4_13.value = data.form5.part4.data[i + 1][12] || 0;
-
+        
         cellpt4_14 = worksheet.getCell('E40');
         cellpt4_14.value = data.form5.part4.data[i + 1][13] || 0;
-
+        
         cellpt4_15 = worksheet.getCell('D41');
         cellpt4_15.value = data.form5.part4.data[i + 1][14] || 0;
-
+        
         cellpt4_16 = worksheet.getCell('E41');
         cellpt4_16.value = data.form5.part4.data[i + 1][15] || 0;
+        
+        cellpt4_17 = worksheet.getCell('D42');
+        cellpt4_17.value = data.form5.part4.data[i + 1][16] || 0;
+        
+        cellpt4_18 = worksheet.getCell('E42');
+        cellpt4_18.value = data.form5.part4.data[i + 1][17] || 0;
+        
+        cellpt4_19 = worksheet.getCell('D43');
+        cellpt4_19.value = data.form5.part4.data[i + 1][18] || 0;
+        
+        cellpt4_20 = worksheet.getCell('E43');
+        cellpt4_20.value = data.form5.part4.data[i + 1][19] || 0;
+        
+        cellpt4_21 = worksheet.getCell('D44');
+        cellpt4_21.value = data.form5.part4.data[i + 1][20] || 0;
+        
+        cellpt4_22 = worksheet.getCell('E44');
+        cellpt4_22.value = data.form5.part4.data[i + 1][21] || 0;
+        
+        cellpt4_23 = worksheet.getCell('D45');
+        cellpt4_23.value = data.form5.part4.data[i + 1][22] || 0;
+        
+        cellpt4_24 = worksheet.getCell('E45');
+        cellpt4_24.value = data.form5.part4.data[i + 1][23] || 0;
+        
+        cellpt4_25 = worksheet.getCell('D46');
+        cellpt4_25.value = data.form5.part4.data[i + 1][24] || 0;
+        
+        cellpt4_26 = worksheet.getCell('E46');
+        cellpt4_26.value = data.form5.part4.data[i + 1][25] || 0;
 
         form5PertandinganNames = data.form5.part4.data[0];
 
@@ -888,9 +1027,6 @@ async function writeDataToCopyForm5() {
         for (let j = 0; j < form5PertandinganNames.length; j++) {
             cellpt4_9 = worksheet.getCell(`C${34 + j}`);
             cellpt4_9.value = form5PertandinganNames[j];
-
-            cellpt4_10 = worksheet.getCell('C41');
-            cellpt4_10.value = '';
         }
 
         // Write the data to the copy

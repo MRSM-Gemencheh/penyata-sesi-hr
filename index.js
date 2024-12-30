@@ -98,7 +98,7 @@ async function readDataFromFile() {
     form4PertandinganNames = []
     form5PertandinganNames = []
 
-    for (let i = 3; i <= 19; i++) {
+    for (let i = 3; i <= 23; i++) {
         // Get all of the pertandingan names from row 84
         form1PertandinganNames.push(form1Worksheet.getRow(84).values[i]) 
         form2PertandinganNames.push(form2Worksheet.getRow(84).values[i])
@@ -154,11 +154,11 @@ async function readDataFromFile() {
     form5Part4Data.push(form5PertandinganNames)
 
     for (let i = 86; i <= 103; i++) {
-        form1Part4Data.push(form1Worksheet.getRow(i).values.slice(3, 19))
-        form2Part4Data.push(form2Worksheet.getRow(i).values.slice(3, 19))
-        form3Part4Data.push(form3Worksheet.getRow(i).values.slice(3, 19))
-        form4Part4Data.push(form4Worksheet.getRow(i).values.slice(3, 19))
-        form5Part4Data.push(form5Worksheet.getRow(i).values.slice(3, 19))
+        form1Part4Data.push(form1Worksheet.getRow(i).values.slice(3, 24))
+        form2Part4Data.push(form2Worksheet.getRow(i).values.slice(3, 23))
+        form3Part4Data.push(form3Worksheet.getRow(i).values.slice(3, 25))
+        form4Part4Data.push(form4Worksheet.getRow(i).values.slice(3, 24))
+        form5Part4Data.push(form5Worksheet.getRow(i).values.slice(3, 24))
     }
 
     let data = {
